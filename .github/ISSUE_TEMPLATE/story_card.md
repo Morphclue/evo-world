@@ -1,6 +1,6 @@
 ---
-name: Feature request
-about: Describe a Task for this project.
+name: Storycard
+about: Describe a Story for this project.
 title: ''
 labels: 'story'
 assignees: ''
