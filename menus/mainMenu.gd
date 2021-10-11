@@ -15,7 +15,7 @@ func _ready():
 	start.add_color_override("font_color", Color(1,1,0,1))
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
 		current_selection += 1
 		_hover(current_selection)
