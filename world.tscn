@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world.gd" type="Script" id=2]
+[ext_resource path="res://world/dirt.png" type="Texture" id=3]
+[ext_resource path="res://world/grass.png" type="Texture" id=4]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="YSort" type="YSort" parent="."]
+
+[node name="dirt" type="Sprite" parent="YSort"]
+position = Vector2( 112.448, 73.7054 )
+texture = ExtResource( 3 )
+
+[node name="grass" type="Sprite" parent="YSort"]
+position = Vector2( 173.239, 90.3993 )
+texture = ExtResource( 4 )
+
 [node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 98.3458, 48.8626 )
