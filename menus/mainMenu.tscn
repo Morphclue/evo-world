@@ -26,43 +26,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="centerContainer" type="CenterContainer" parent="background"]
+[node name="centerContainer" type="CenterContainer" parent="."]
 margin_right = 320.0
 margin_bottom = 180.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="container" type="VBoxContainer" parent="background/centerContainer"]
+[node name="container" type="VBoxContainer" parent="centerContainer"]
 margin_left = 91.0
 margin_top = 54.0
 margin_right = 229.0
 margin_bottom = 126.0
 
-[node name="titleVBox" type="VBoxContainer" parent="background/centerContainer/container"]
+[node name="titleVBox" type="VBoxContainer" parent="centerContainer/container"]
 margin_right = 138.0
 margin_bottom = 24.0
 
-[node name="title" type="Label" parent="background/centerContainer/container/titleVBox"]
+[node name="title" type="Label" parent="centerContainer/container/titleVBox"]
 margin_right = 138.0
 margin_bottom = 24.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Evo World"
 
-[node name="options" type="VBoxContainer" parent="background/centerContainer/container"]
+[node name="options" type="VBoxContainer" parent="centerContainer/container"]
 margin_top = 28.0
 margin_right = 138.0
 margin_bottom = 72.0
 
-[node name="start" type="Label" parent="background/centerContainer/container/options"]
+[node name="start" type="Label" parent="centerContainer/container/options"]
 margin_right = 138.0
 margin_bottom = 12.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "START"
 
-[node name="settings" type="Label" parent="background/centerContainer/container/options"]
+[node name="settings" type="Label" parent="centerContainer/container/options"]
 margin_top = 16.0
 margin_right = 138.0
 margin_bottom = 28.0
@@ -70,7 +70,7 @@ custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Settings"
 
-[node name="exit" type="Label" parent="background/centerContainer/container/options"]
+[node name="exit" type="Label" parent="centerContainer/container/options"]
 margin_top = 32.0
 margin_right = 138.0
 margin_bottom = 44.0

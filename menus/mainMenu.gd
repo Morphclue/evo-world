@@ -1,10 +1,11 @@
 extends Control
 
 const world_scene = preload("res://world.tscn")
+const settings_scene = preload("res://menus/settingsMenu.tscn")
 
-onready var start = $background/centerContainer/container/options/start
-onready var settings = $background/centerContainer/container/options/settings
-onready var exit = $background/centerContainer/container/options/exit
+onready var start = $centerContainer/container/options/start
+onready var settings = $centerContainer/container/options/settings
+onready var exit = $centerContainer/container/options/exit
 
 var options
 var current_selection = 0
@@ -27,12 +28,16 @@ func _process(delta):
 
 func _select(_current_selection: int) -> void:
 	if current_selection == 0:
-		get_parent().add_child(world_scene.instance())
-		queue_free()
+		_switch_scene(world_scene)
 	elif _current_selection == 1:
-		print("TODO OPTIONS")
+		_switch_scene(settings_scene)
 	elif _current_selection == 2:
 		get_tree().quit()
+
+
+func _switch_scene(scene):
+	get_parent().add_child(scene.instance())
+	queue_free()
 
 
 func _hover(_current_selection: int) -> void:
