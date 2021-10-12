@@ -16,22 +16,20 @@ func _ready():
 
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_down") and current_selection < 2:
-		current_selection += 1
-		_hover(current_selection)
-	elif Input.is_action_just_pressed("ui_up") and current_selection > 0:
-		current_selection -= 1
-		_hover(current_selection)
+	if Input.is_action_just_pressed("ui_down"):
+		_hover(1)
+	elif Input.is_action_just_pressed("ui_up"):
+		_hover(-1)
 	elif Input.is_action_just_pressed("ui_accept"):
-		_select(current_selection)
+		_select()
 
 
-func _select(_current_selection: int) -> void:
+func _select() -> void:
 	if current_selection == 0:
 		_switch_scene(world_scene)
-	elif _current_selection == 1:
+	elif current_selection == 1:
 		_switch_scene(settings_scene)
-	elif _current_selection == 2:
+	elif current_selection == 2:
 		get_tree().quit()
 
 
@@ -40,9 +38,12 @@ func _switch_scene(scene):
 	queue_free()
 
 
-func _hover(_current_selection: int) -> void:
+func _hover(value: int) -> void:
+	current_selection += value
+	current_selection = current_selection % 3 
+	
 	for option in options:
 		option.add_color_override("font_color", Color(1,1,1,1))
 	
-	options[_current_selection].add_color_override("font_color", Color(1,1,0,1))
+	options[current_selection].add_color_override("font_color", Color(1,1,0,1))
 	pass
