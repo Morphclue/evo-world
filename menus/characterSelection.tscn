@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menus/NESCyrillic.tres" type="DynamicFont" id=1]
+[ext_resource path="res://player/char.png" type="Texture" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://menus/NESCyrillic.ttf"
@@ -138,3 +139,9 @@ text = "Shoes"
 margin_left = 103.0
 margin_right = 115.0
 margin_bottom = 20.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 71.0184, 98.2878 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+offset = Vector2( -3.86622, 0 )
