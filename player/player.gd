@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
-const ACCELERATION: int = 500
-const MAX_SPEED: int = 80
+
 const sprites: Script = preload("res://player/sprites/sprites.gd")
 
 var velocity = Vector2.ZERO
@@ -14,11 +13,11 @@ onready var shoes_sprite = $SpriteLayer/Shoes
 onready var accessory_sprite = $SpriteLayer/Accessory
 
 var current_sprite = {
-	"Hair" : 0,
-	"Head" : 0,
-	"Body" : 0,
-	"Shoes": 0,
-	"Accessory" : 0
+	Constants.HAIR : 0,
+	Constants.HEAD : 0,
+	Constants.BODY : 0,
+	Constants.SHOES : 0,
+	Constants.ACCESSORY : 0,
 }
 
 func _ready():
@@ -59,10 +58,10 @@ func _move(delta: float) -> void:
 	input = input.normalized()
 	
 	if input != Vector2.ZERO:
-		velocity = velocity.move_toward(input * MAX_SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(input * Constants.MAX_SPEED, Constants.ACCELERATION * delta)
 		_look_in_direction(input)
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, ACCELERATION * delta)
+		velocity = velocity.move_toward(Vector2.ZERO, Constants.ACCELERATION * delta)
 	
 	velocity = move_and_slide(velocity)
 

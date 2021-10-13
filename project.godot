@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerVariables="*res://autoload/playerVariables.gd"
+Constants="*res://autoload/constants.gd"
 
 [display]
 

@@ -2,7 +2,13 @@ extends Control
 
 onready var v_box = $centerContainer/vBoxContainer
 onready var player = $player
-const sprites = ['Hair', 'Head', 'Body', 'Shoes', 'Accessory']
+const sprites = [
+	Constants.HAIR,
+	Constants.HEAD,
+	Constants.BODY,
+	Constants.SHOES,
+	Constants.ACCESSORY,
+]
 
 const world_scene = preload("res://world.tscn")
 const left_arrow = preload("res://menus/sprites/arrowl.png")
