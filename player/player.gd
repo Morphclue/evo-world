@@ -22,6 +22,8 @@ var current_sprite = {
 }
 
 func _ready():
+	if PlayerVariables.current_sprite:
+		current_sprite = PlayerVariables.current_sprite
 	set_sprites()
 
 
@@ -41,6 +43,7 @@ func set_sprites() -> void:
 	body_sprite.texture = sprites.body[current_sprite.Body]
 	shoes_sprite.texture = sprites.shoes[current_sprite.Shoes]
 	accessory_sprite.texture = sprites.accessory[current_sprite.Accessory]
+	PlayerVariables.current_sprite = current_sprite
 
 
 func _move(delta: float) -> void:

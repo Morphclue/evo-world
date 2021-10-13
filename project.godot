@@ -14,6 +14,10 @@ config/name="evo-world"
 run/main_scene="res://world.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerVariables="*res://autoload/playerVariables.gd"
+
 [display]
 
 window/size/width=320
