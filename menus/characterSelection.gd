@@ -13,17 +13,20 @@ func _ready():
 	_initUI()
 
 
-func _initUI():
+func _initUI() -> void:
 	for sprite in sprites:
 		var hBox = HBoxContainer.new()
 		var leftButton = Button.new()
-		var label = Label.new()
+		var name = Label.new()
+		var number = Label.new()
 		var rightButton = Button.new()
 		
 		hBox.alignment = HALIGN_CENTER
 		
-		label.text = sprite
-		label.add_font_override("font", font)
+		name.text = sprite
+		number.text = '1'
+		name.add_font_override("font", font)
+		number.add_font_override("font", font)
 		
 		leftButton.icon = leftArrow
 		rightButton.icon = rightArrow
@@ -34,11 +37,12 @@ func _initUI():
 		leftButton.set("custom_styles/focus", StyleBoxEmpty.new())
 		rightButton.set("custom_styles/focus", StyleBoxEmpty.new())
 		
-		leftButton.connect("pressed", self, "_on_button_pressed", [label.text, -1])
-		rightButton.connect("pressed", self, "_on_button_pressed", [label.text, 1])
+		leftButton.connect("pressed", self, "_on_button_pressed", [name, number, -1])
+		rightButton.connect("pressed", self, "_on_button_pressed", [name, number, 1])
 		
 		hBox.add_child(leftButton)
-		hBox.add_child(label)
+		hBox.add_child(name)
+		hBox.add_child(number)
 		hBox.add_child(rightButton)
 		vBoxContainer.add_child(hBox)
 	
@@ -52,6 +56,7 @@ func _initUI():
 	vBoxContainer.add_child(acceptButton)
 
 
-func _on_button_pressed(_text: String, _value: int) -> void:
-	player.currentSprite[_text] += _value
+func _on_button_pressed(_name: Label, _number: Label, _value: int) -> void:
+	player.currentSprite[_name.text] += _value
 	player.set_sprites()
+	_number.text = str(player.currentSprite[_name.text] + 1)

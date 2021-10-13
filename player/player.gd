@@ -26,11 +26,17 @@ func _ready():
 
 
 func set_sprites():
-	hairSprite.texture = sprites.hair[currentSprite.Hair % sprites.hair.size()]
+	currentSprite.Hair = currentSprite.Hair % sprites.hair.size()
+	currentSprite.Head = 0
+	currentSprite.Body = currentSprite.Body % sprites.body.size()
+	currentSprite.Shoes = currentSprite.Shoes % sprites.shoes.size()
+	currentSprite.Accessory = currentSprite.Accessory % sprites.accessory.size()
+	
+	hairSprite.texture = sprites.hair[currentSprite.Hair]
 	headSprite.texture = sprites.head
-	bodySprite.texture = sprites.body[currentSprite.Body % sprites.body.size()]
-	shoesSprite.texture = sprites.shoes[currentSprite.Shoes % sprites.shoes.size()]
-	accessorySprite.texture = sprites.accessory[currentSprite.Accessory % sprites.accessory.size()]
+	bodySprite.texture = sprites.body[currentSprite.Body]
+	shoesSprite.texture = sprites.shoes[currentSprite.Shoes]
+	accessorySprite.texture = sprites.accessory[currentSprite.Accessory]
 
 
 func _physics_process(delta):
