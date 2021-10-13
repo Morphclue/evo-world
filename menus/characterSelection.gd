@@ -1,11 +1,11 @@
 extends Control
 
-onready var vBoxContainer = $centerContainer/vBoxContainer
+onready var v_box = $centerContainer/vBoxContainer
 onready var player = $player
 const sprites = ['Hair', 'Head', 'Body', 'Shoes', 'Accessory']
 
-const leftArrow = preload("res://menus/sprites/arrowl.png")
-const rightArrow = preload("res://menus/sprites/arrow.png")
+const left_arrow = preload("res://menus/sprites/arrowl.png")
+const right_arrow = preload("res://menus/sprites/arrow.png")
 const font = preload("res://menus/NESCyrillic.tres")
 
 
@@ -15,48 +15,48 @@ func _ready():
 
 func _initUI() -> void:
 	for sprite in sprites:
-		var hBox = HBoxContainer.new()
-		var leftButton = Button.new()
+		var h_box = HBoxContainer.new()
+		var left_button = Button.new()
 		var name = Label.new()
 		var number = Label.new()
-		var rightButton = Button.new()
+		var right_button = Button.new()
 		
-		hBox.alignment = HALIGN_CENTER
+		h_box.alignment = HALIGN_CENTER
 		
 		name.text = sprite
 		number.text = '1'
 		name.add_font_override("font", font)
 		number.add_font_override("font", font)
 		
-		leftButton.icon = leftArrow
-		rightButton.icon = rightArrow
-		leftButton.set("custom_styles/normal", StyleBoxEmpty.new())
-		rightButton.set("custom_styles/normal", StyleBoxEmpty.new())
-		leftButton.set("custom_styles/hover", StyleBoxEmpty.new())
-		rightButton.set("custom_styles/hover", StyleBoxEmpty.new())
-		leftButton.set("custom_styles/focus", StyleBoxEmpty.new())
-		rightButton.set("custom_styles/focus", StyleBoxEmpty.new())
+		left_button.icon = left_arrow
+		right_button.icon = right_arrow
+		left_button.set("custom_styles/normal", StyleBoxEmpty.new())
+		right_button.set("custom_styles/normal", StyleBoxEmpty.new())
+		left_button.set("custom_styles/hover", StyleBoxEmpty.new())
+		right_button.set("custom_styles/hover", StyleBoxEmpty.new())
+		left_button.set("custom_styles/focus", StyleBoxEmpty.new())
+		right_button.set("custom_styles/focus", StyleBoxEmpty.new())
 		
-		leftButton.connect("pressed", self, "_on_button_pressed", [name, number, -1])
-		rightButton.connect("pressed", self, "_on_button_pressed", [name, number, 1])
+		left_button.connect("pressed", self, "_on_button_pressed", [name, number, -1])
+		right_button.connect("pressed", self, "_on_button_pressed", [name, number, 1])
 		
-		hBox.add_child(leftButton)
-		hBox.add_child(name)
-		hBox.add_child(number)
-		hBox.add_child(rightButton)
-		vBoxContainer.add_child(hBox)
+		h_box.add_child(left_button)
+		h_box.add_child(name)
+		h_box.add_child(number)
+		h_box.add_child(right_button)
+		v_box.add_child(h_box)
 	
-	var acceptButton = Button.new()
-	acceptButton.add_font_override("font", font)
-	acceptButton.text = 'Accept'
-	acceptButton.set("custom_styles/normal", StyleBoxEmpty.new())
-	acceptButton.set("custom_styles/hover", StyleBoxEmpty.new())
-	acceptButton.set("custom_styles/focus", StyleBoxEmpty.new())
+	var accept_button = Button.new()
+	accept_button.add_font_override("font", font)
+	accept_button.text = 'Accept'
+	accept_button.set("custom_styles/normal", StyleBoxEmpty.new())
+	accept_button.set("custom_styles/hover", StyleBoxEmpty.new())
+	accept_button.set("custom_styles/focus", StyleBoxEmpty.new())
 	
-	vBoxContainer.add_child(acceptButton)
+	v_box.add_child(accept_button)
 
 
 func _on_button_pressed(_name: Label, _number: Label, _value: int) -> void:
-	player.currentSprite[_name.text] += _value
+	player.current_sprite[_name.text] += _value
 	player.set_sprites()
-	_number.text = str(player.currentSprite[_name.text] + 1)
+	_number.text = str(player.current_sprite[_name.text] + 1)

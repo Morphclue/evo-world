@@ -1,19 +1,19 @@
 extends KinematicBody2D
 
-const ACCELERATION = 500
-const MAX_SPEED = 80
-const sprites = preload("res://player/sprites/sprites.gd")
+const ACCELERATION: int = 500
+const MAX_SPEED: int = 80
+const sprites: Script = preload("res://player/sprites/sprites.gd")
 
 var velocity = Vector2.ZERO
 
 onready var ray = $RayCast2D
-onready var hairSprite = $SpriteLayer/Hair
-onready var headSprite = $SpriteLayer/Head
-onready var bodySprite = $SpriteLayer/Body
-onready var shoesSprite = $SpriteLayer/Shoes
-onready var accessorySprite = $SpriteLayer/Accessory
+onready var hair_sprite = $SpriteLayer/Hair
+onready var head_sprite= $SpriteLayer/Head
+onready var body_sprite = $SpriteLayer/Body
+onready var shoes_sprite = $SpriteLayer/Shoes
+onready var accessory_sprite = $SpriteLayer/Accessory
 
-var currentSprite = {
+var current_sprite = {
 	"Hair" : 0,
 	"Head" : 0,
 	"Body" : 0,
@@ -25,25 +25,25 @@ func _ready():
 	set_sprites()
 
 
-func set_sprites():
-	currentSprite.Hair = currentSprite.Hair % sprites.hair.size()
-	currentSprite.Head = 0
-	currentSprite.Body = currentSprite.Body % sprites.body.size()
-	currentSprite.Shoes = currentSprite.Shoes % sprites.shoes.size()
-	currentSprite.Accessory = currentSprite.Accessory % sprites.accessory.size()
-	
-	hairSprite.texture = sprites.hair[currentSprite.Hair]
-	headSprite.texture = sprites.head
-	bodySprite.texture = sprites.body[currentSprite.Body]
-	shoesSprite.texture = sprites.shoes[currentSprite.Shoes]
-	accessorySprite.texture = sprites.accessory[currentSprite.Accessory]
-
-
 func _physics_process(delta):
 	_move(delta)
 
 
-func _move(delta) -> void:
+func set_sprites() -> void:
+	current_sprite.Hair = current_sprite.Hair % sprites.hair.size()
+	current_sprite.Head = 0
+	current_sprite.Body = current_sprite.Body % sprites.body.size()
+	current_sprite.Shoes = current_sprite.Shoes % sprites.shoes.size()
+	current_sprite.Accessory = current_sprite.Accessory % sprites.accessory.size()
+	
+	hair_sprite.texture = sprites.hair[current_sprite.Hair]
+	head_sprite.texture = sprites.head
+	body_sprite.texture = sprites.body[current_sprite.Body]
+	shoes_sprite.texture = sprites.shoes[current_sprite.Shoes]
+	accessory_sprite.texture = sprites.accessory[current_sprite.Accessory]
+
+
+func _move(delta: float) -> void:
 	var input = Vector2.ZERO
 	if Input.is_action_pressed("right"):
 		input.x += 1
@@ -64,6 +64,6 @@ func _move(delta) -> void:
 	velocity = move_and_slide(velocity)
 
 
-func _look_in_direction(input) -> void:
+func _look_in_direction(input: Vector2) -> void:
 	var look_direction = atan2(-input.x, input.y)
 	ray.rotation = look_direction
