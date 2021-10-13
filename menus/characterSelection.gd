@@ -4,6 +4,7 @@ onready var v_box = $centerContainer/vBoxContainer
 onready var player = $player
 const sprites = ['Hair', 'Head', 'Body', 'Shoes', 'Accessory']
 
+const world_scene = preload("res://world.tscn")
 const left_arrow = preload("res://menus/sprites/arrowl.png")
 const right_arrow = preload("res://menus/sprites/arrow.png")
 const font = preload("res://menus/NESCyrillic.tres")
@@ -52,8 +53,18 @@ func _initUI() -> void:
 	accept_button.set("custom_styles/normal", StyleBoxEmpty.new())
 	accept_button.set("custom_styles/hover", StyleBoxEmpty.new())
 	accept_button.set("custom_styles/focus", StyleBoxEmpty.new())
+	accept_button.connect("pressed", self, "_accept_button_pressed")
 	
 	v_box.add_child(accept_button)
+
+
+func _accept_button_pressed():
+	_switch_scene(world_scene)
+
+
+func _switch_scene(scene):
+	get_parent().add_child(scene.instance())
+	queue_free()
 
 
 func _on_button_pressed(_name: Label, _number: Label, _value: int) -> void:

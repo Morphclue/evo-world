@@ -1,6 +1,6 @@
 extends Control
 
-const world_scene = preload("res://world.tscn")
+const char_selection_scene = preload("res://menus/characterSelection.tscn")
 const settings_scene = preload("res://menus/settingsMenu.tscn")
 
 onready var start = $centerContainer/container/options/start
@@ -9,6 +9,7 @@ onready var exit = $centerContainer/container/options/exit
 
 var options
 var current_selection = 0
+
 
 func _ready():
 	options = [start, settings, exit]
@@ -26,7 +27,7 @@ func _process(_delta):
 
 func _select() -> void:
 	if current_selection == 0:
-		_switch_scene(world_scene)
+		_switch_scene(char_selection_scene)
 	elif current_selection == 1:
 		_switch_scene(settings_scene)
 	elif current_selection == 2:
