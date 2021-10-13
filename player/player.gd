@@ -1,9 +1,36 @@
 extends KinematicBody2D
 
-var ACCELERATION = 500
-var MAX_SPEED = 80
+const ACCELERATION = 500
+const MAX_SPEED = 80
+const sprites = preload("res://player/sprites/sprites.gd")
+
 var velocity = Vector2.ZERO
+
 onready var ray = $RayCast2D
+onready var hairSprite = $SpriteLayer/Hair
+onready var headSprite = $SpriteLayer/Head
+onready var bodySprite = $SpriteLayer/Body
+onready var shoesSprite = $SpriteLayer/Shoes
+onready var accessorySprite = $SpriteLayer/Accessory
+
+var currentSprite = {
+	"Hair" : 0,
+	"Head" : 0,
+	"Body" : 0,
+	"Shoes": 0,
+	"Accessory" : 0
+}
+
+func _ready():
+	set_sprites()
+
+
+func set_sprites():
+	hairSprite.texture = sprites.hair[currentSprite.Hair % sprites.hair.size()]
+	headSprite.texture = sprites.head
+	bodySprite.texture = sprites.body[currentSprite.Body % sprites.body.size()]
+	shoesSprite.texture = sprites.shoes[currentSprite.Shoes % sprites.shoes.size()]
+	accessorySprite.texture = sprites.accessory[currentSprite.Accessory % sprites.accessory.size()]
 
 
 func _physics_process(delta):

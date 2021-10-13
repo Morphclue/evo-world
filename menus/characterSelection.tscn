@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://menus/NESCyrillic.tres" type="DynamicFont" id=1]
-[ext_resource path="res://player/char.png" type="Texture" id=2]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menus/characterSelection.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://menus/NESCyrillic.ttf"
@@ -12,6 +12,7 @@ font_data = SubResource( 1 )
 [node name="characterSelection" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -24,8 +25,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56.0615, 109.211 )
+
+[node name="SpriteLayer" parent="player" index="0"]
+scale = Vector2( 2, 2 )
+
+[node name="CollisionShape2D" parent="player" index="2"]
+visible = false
+
+[node name="RayCast2D" parent="player" index="3"]
+visible = false
+
 [node name="centerContainer" type="CenterContainer" parent="."]
-margin_right = 320.0
+margin_left = 0.668556
+margin_right = 320.669
 margin_bottom = 180.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -33,9 +47,9 @@ __meta__ = {
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
 margin_left = 80.0
-margin_top = 36.0
+margin_top = 84.0
 margin_right = 239.0
-margin_bottom = 144.0
+margin_bottom = 96.0
 
 [node name="title" type="Label" parent="centerContainer/vBoxContainer"]
 margin_right = 159.0
@@ -44,104 +58,11 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "select your character"
 
-[node name="HairContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
-margin_top = 16.0
-margin_right = 159.0
-margin_bottom = 36.0
-alignment = 1
+[node name="Button" type="Button" parent="centerContainer"]
+visible = false
+margin_left = 154.0
+margin_top = 80.0
+margin_right = 166.0
+margin_bottom = 100.0
 
-[node name="Left" type="Button" parent="centerContainer/vBoxContainer/HairContainer"]
-margin_left = 48.0
-margin_right = 60.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="centerContainer/vBoxContainer/HairContainer"]
-margin_left = 64.0
-margin_top = 4.0
-margin_right = 95.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 1 )
-text = "Hair"
-
-[node name="Right" type="Button" parent="centerContainer/vBoxContainer/HairContainer"]
-margin_left = 99.0
-margin_right = 111.0
-margin_bottom = 20.0
-
-[node name="ShirtContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
-margin_top = 40.0
-margin_right = 159.0
-margin_bottom = 60.0
-alignment = 1
-
-[node name="Left" type="Button" parent="centerContainer/vBoxContainer/ShirtContainer"]
-margin_left = 44.0
-margin_right = 56.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="centerContainer/vBoxContainer/ShirtContainer"]
-margin_left = 60.0
-margin_top = 4.0
-margin_right = 98.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 1 )
-text = "Shirt"
-
-[node name="Right" type="Button" parent="centerContainer/vBoxContainer/ShirtContainer"]
-margin_left = 102.0
-margin_right = 114.0
-margin_bottom = 20.0
-
-[node name="PantsContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
-margin_top = 64.0
-margin_right = 159.0
-margin_bottom = 84.0
-alignment = 1
-
-[node name="Left" type="Button" parent="centerContainer/vBoxContainer/PantsContainer"]
-margin_left = 44.0
-margin_right = 56.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="centerContainer/vBoxContainer/PantsContainer"]
-margin_left = 60.0
-margin_top = 4.0
-margin_right = 99.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 1 )
-text = "Pants"
-
-[node name="Right" type="Button" parent="centerContainer/vBoxContainer/PantsContainer"]
-margin_left = 103.0
-margin_right = 115.0
-margin_bottom = 20.0
-
-[node name="ShoeContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
-margin_top = 88.0
-margin_right = 159.0
-margin_bottom = 108.0
-alignment = 1
-
-[node name="Left" type="Button" parent="centerContainer/vBoxContainer/ShoeContainer"]
-margin_left = 43.0
-margin_right = 55.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="centerContainer/vBoxContainer/ShoeContainer"]
-margin_left = 59.0
-margin_top = 4.0
-margin_right = 99.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 1 )
-text = "Shoes"
-
-[node name="Right" type="Button" parent="centerContainer/vBoxContainer/ShoeContainer"]
-margin_left = 103.0
-margin_right = 115.0
-margin_bottom = 20.0
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 71.0184, 98.2878 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
-offset = Vector2( -3.86622, 0 )
+[editable path="player"]
