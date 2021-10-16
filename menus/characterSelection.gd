@@ -65,12 +65,7 @@ func _initUI() -> void:
 
 
 func _accept_button_pressed():
-	_switch_scene(world_scene)
-
-
-func _switch_scene(scene):
-	get_parent().add_child(scene.instance())
-	queue_free()
+	Utils.switch_scene(self, world_scene)
 
 
 func _on_button_pressed(_name: Label, _number: Label, _value: int) -> void:
