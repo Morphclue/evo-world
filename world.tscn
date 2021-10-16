@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://world/sprites/grass_atlas.png" type="Texture" id=5]
 [ext_resource path="res://pet/pet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://hud/clock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://hud/hud.gd" type="Script" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "grass_atlas.png 0"
@@ -62,5 +63,7 @@ position = Vector2( 64.5, 48.5 )
 position = Vector2( 98.3458, 48.8626 )
 
 [node name="hud" type="Node" parent="."]
+pause_mode = 2
+script = ExtResource( 8 )
 
 [node name="clock" parent="hud" instance=ExtResource( 7 )]
