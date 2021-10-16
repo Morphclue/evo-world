@@ -3,7 +3,7 @@ extends Node
 onready var clock = $clock
 var journal = preload("res://menus/journal.tscn")
 
-func _process(delta):
+func _process(_delta):
 	_handle_input()
 
 
