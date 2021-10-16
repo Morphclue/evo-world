@@ -3,14 +3,14 @@ extends KinematicBody2D
 
 const sprites: Script = preload("res://player/sprites/sprites.gd")
 
-var velocity = Vector2.ZERO
+var velocity: Vector2 = Vector2.ZERO
 
-onready var ray = $RayCast2D
-onready var hair_sprite = $SpriteLayer/Hair
-onready var head_sprite= $SpriteLayer/Head
-onready var body_sprite = $SpriteLayer/Body
-onready var shoes_sprite = $SpriteLayer/Shoes
-onready var accessory_sprite = $SpriteLayer/Accessory
+onready var ray: RayCast2D = $RayCast2D
+onready var hair_sprite: Sprite = $SpriteLayer/Hair
+onready var head_sprite: Sprite = $SpriteLayer/Head
+onready var body_sprite: Sprite = $SpriteLayer/Body
+onready var shoes_sprite: Sprite = $SpriteLayer/Shoes
+onready var accessory_sprite: Sprite = $SpriteLayer/Accessory
 
 var current_sprite = {
 	Constants.HAIR : 0,
