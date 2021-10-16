@@ -21,7 +21,6 @@ func _move_pointer():
 
 func _calculate_time():
 	minutes += 1
-	print(minutes)
 	
 	if minutes == 60:
 		minutes = 0
