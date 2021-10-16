@@ -27,16 +27,11 @@ func _process(_delta):
 
 func _select() -> void:
 	if current_selection == 0:
-		_switch_scene(char_selection_scene)
+		Utils.switch_scene(self, char_selection_scene)
 	elif current_selection == 1:
-		_switch_scene(settings_scene)
+		Utils.switch_scene(self, settings_scene)
 	elif current_selection == 2:
 		get_tree().quit()
-
-
-func _switch_scene(scene):
-	get_parent().add_child(scene.instance())
-	queue_free()
 
 
 func _hover(value: int) -> void:
