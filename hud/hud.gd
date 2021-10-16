@@ -14,8 +14,4 @@ func _handle_input():
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().paused = false
-		for n in get_children():
-			if n == clock: 
-				continue
-			remove_child(n)
-			n.queue_free()
+		Utils.remove_children(self, [clock])
