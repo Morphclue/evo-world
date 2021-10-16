@@ -12,13 +12,14 @@ onready var body_sprite: Sprite = $SpriteLayer/Body
 onready var shoes_sprite: Sprite = $SpriteLayer/Shoes
 onready var accessory_sprite: Sprite = $SpriteLayer/Accessory
 
-var current_sprite = {
+var current_sprite: Dictionary = {
 	Constants.HAIR : 0,
 	Constants.HEAD : 0,
 	Constants.BODY : 0,
 	Constants.SHOES : 0,
 	Constants.ACCESSORY : 0,
 }
+
 
 func _ready():
 	if PlayerVariables.current_sprite:
@@ -38,7 +39,7 @@ func set_sprites() -> void:
 	current_sprite.Accessory = current_sprite.Accessory % sprites.accessory.size()
 	
 	hair_sprite.texture = sprites.hair[current_sprite.Hair]
-	head_sprite.texture = sprites.head
+	head_sprite.texture = sprites.head[current_sprite.Head]
 	body_sprite.texture = sprites.body[current_sprite.Body]
 	shoes_sprite.texture = sprites.shoes[current_sprite.Shoes]
 	accessory_sprite.texture = sprites.accessory[current_sprite.Accessory]

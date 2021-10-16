@@ -1,7 +1,8 @@
 extends Node
 
-onready var clock = $clock
-var journal = preload("res://menus/journal.tscn")
+onready var clock: Control = $clock
+var journal: PackedScene  = preload("res://menus/journal.tscn")
+
 
 func _process(_delta):
 	_handle_input()

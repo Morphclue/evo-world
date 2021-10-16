@@ -1,8 +1,8 @@
 extends Control
 
-onready var v_box = $centerContainer/vBoxContainer
-onready var player = $player
-const sprites = [
+onready var v_box: VBoxContainer = $centerContainer/vBoxContainer
+onready var player: Node2D = $player
+const sprites: Array = [
 	Constants.HAIR,
 	Constants.HEAD,
 	Constants.BODY,
@@ -10,10 +10,10 @@ const sprites = [
 	Constants.ACCESSORY,
 ]
 
-const world_scene = preload("res://world.tscn")
-const left_arrow = preload("res://menus/sprites/arrowl.png")
-const right_arrow = preload("res://menus/sprites/arrow.png")
-const font = preload("res://menus/NESCyrillic.tres")
+const world_scene: PackedScene = preload("res://world.tscn")
+const left_arrow: StreamTexture = preload("res://menus/sprites/arrowl.png")
+const right_arrow: StreamTexture = preload("res://menus/sprites/arrow.png")
+const font: DynamicFont = preload("res://menus/NESCyrillic.tres")
 
 
 func _ready():

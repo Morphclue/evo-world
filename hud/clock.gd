@@ -4,8 +4,8 @@ var seconds: int = 0
 var minutes: int = 0
 var hours: int = 0
 
-onready var small_pointer = $background/small
-onready var big_pointer = $background/big
+onready var small_pointer: Node2D = $background/small
+onready var big_pointer: Node2D = $background/big
 
 
 func _on_time_timeout():
