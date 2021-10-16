@@ -34,7 +34,7 @@
 script = ExtResource( 2 )
 
 [node name="dirt" type="Sprite" parent="."]
-position = Vector2( 188.078, 102.123 )
+position = Vector2( 188.453, 102.123 )
 scale = Vector2( 1.09144, 1.12054 )
 texture = ExtResource( 3 )
 region_enabled = true

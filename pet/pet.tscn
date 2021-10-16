@@ -8,12 +8,15 @@ radius = 2.73597
 height = 7.01523
 
 [node name="pet" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+offset = Vector2( 0, 8 )
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.0288963, 5.54526 )
+position = Vector2( 0, 14 )
 rotation = 1.5708
 shape = SubResource( 1 )
