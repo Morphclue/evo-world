@@ -30,7 +30,7 @@ func _load_ui():
 	for quest in quests: 
 		item_list.add_item(quest.title)
 	
-	for i in range(item_list.items.size()):
+	for i in range(item_list.get_item_count()):
 		item_list.set_item_tooltip_enabled(i, false)
 	
 	_on_itemList_item_selected(0)
@@ -38,6 +38,4 @@ func _load_ui():
 
 
 func _on_itemList_item_selected(index):
-	print(quests[index].title)
-	print(quests[index].description)
 	description.text = quests[index].description
