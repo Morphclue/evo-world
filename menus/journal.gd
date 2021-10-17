@@ -35,6 +35,7 @@ func _load_ui():
 	
 	_on_itemList_item_selected(0)
 	item_list.select(0)
+	item_list.grab_focus()
 
 
 func _on_itemList_item_selected(index):
