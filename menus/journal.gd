@@ -40,3 +40,7 @@ func _load_ui():
 
 func _on_itemList_item_selected(index):
 	description.text = quests[index].description
+
+
+func _on_back_pressed():
+	pass # Replace with function body.

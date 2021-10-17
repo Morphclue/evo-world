@@ -58,3 +58,4 @@ __meta__ = {
 }
 
 [connection signal="item_selected" from="vBox/itemList" to="." method="_on_itemList_item_selected"]
+[connection signal="pressed" from="vBox/hBox/back" to="." method="_on_back_pressed"]
