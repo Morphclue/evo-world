@@ -1,21 +1,59 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://menus/journal.gd" type="Script" id=1]
+[ext_resource path="res://menus/NESCyrillic.tres" type="DynamicFont" id=2]
 
 [node name="journal" type="Control"]
-margin_right = 320.0
-margin_bottom = 180.0
+margin_left = 0.0433044
+margin_top = -0.198425
+margin_right = 320.043
+margin_bottom = 179.802
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 80.0
-margin_top = 45.0
-margin_right = 240.0
-margin_bottom = 135.0
-color = Color( 0.12549, 0.509804, 0.231373, 0.54902 )
+[node name="vBox" type="VBoxContainer" parent="."]
+margin_left = 60.0
+margin_top = 10.0
+margin_right = 260.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 200, 160 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="itemList" type="ItemList" parent="vBox"]
+margin_right = 202.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 200, 130 )
+custom_fonts/font = ExtResource( 2 )
+items = [ "Item 0", null, false, "Item 1", null, false, "Item 2", null, false, "Item 3", null, false, "Item 4", null, false, "Item 5", null, false, "Item 6", null, false ]
+
+[node name="hBox" type="HBoxContainer" parent="vBox"]
+margin_top = 134.0
+margin_right = 202.0
+margin_bottom = 160.0
+
+[node name="panelContainer" type="PanelContainer" parent="vBox/hBox"]
+margin_right = 154.0
+margin_bottom = 26.0
+
+[node name="description" type="Label" parent="vBox/hBox/panelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 147.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 140, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "Description"
+
+[node name="back" type="Button" parent="vBox/hBox"]
+margin_left = 158.0
+margin_right = 202.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 2 )
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
