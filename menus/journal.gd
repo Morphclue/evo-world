@@ -7,6 +7,7 @@ onready var back: Button = $vBox/hBox/back
 
 func _ready():
 	_load_quests()
+	_load_dummy_quests()
 	_load_ui()
 
 
@@ -14,5 +15,29 @@ func _load_quests():
 	quests = PlayerVariables.quest_list
 
 
+func _load_dummy_quests():
+	for i in range(10):
+		var title = "Quest " + str(i)
+		var desc = "Desc: " + str(i)
+		var quest: Quest = Quest.new(title, desc)
+		quests.append(quest)
+
+
 func _load_ui():
-	pass
+	if !quests.size():
+		return
+	
+	for quest in quests: 
+		item_list.add_item(quest.title)
+	
+	for i in range(item_list.items.size()):
+		item_list.set_item_tooltip_enabled(i, false)
+	
+	_on_itemList_item_selected(0)
+	item_list.select(0)
+
+
+func _on_itemList_item_selected(index):
+	print(quests[index].title)
+	print(quests[index].description)
+	description.text = quests[index].description

@@ -28,7 +28,6 @@ margin_right = 202.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 200, 130 )
 custom_fonts/font = ExtResource( 2 )
-items = [ "Item 0", null, false, "Item 1", null, false, "Item 2", null, false, "Item 3", null, false, "Item 4", null, false, "Item 5", null, false, "Item 6", null, false ]
 
 [node name="hBox" type="HBoxContainer" parent="vBox"]
 margin_top = 134.0
@@ -57,3 +56,5 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="item_selected" from="vBox/itemList" to="." method="_on_itemList_item_selected"]
