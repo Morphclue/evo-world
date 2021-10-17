@@ -4,6 +4,7 @@ onready var clock: Control = $clock
 var journal: PackedScene  = preload("res://menus/journal.tscn")
 var open_journal: bool = false
 
+
 func _process(_delta):
 	_handle_input()
 
@@ -22,7 +23,7 @@ func _handle_input():
 func _add_window(scene: PackedScene):
 	open_journal = true
 	get_tree().paused = true
-	add_child(journal.instance())
+	add_child(scene.instance())
 
 
 func _close_windows():
