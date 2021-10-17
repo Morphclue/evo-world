@@ -64,7 +64,7 @@ func _initUI() -> void:
 	v_box.add_child(accept_button)
 
 
-func _accept_button_pressed():
+func _accept_button_pressed() -> void:
 	Utils.switch_scene(self, world_scene)
 
 

@@ -11,11 +11,11 @@ func _ready():
 	_load_ui()
 
 
-func _load_quests():
+func _load_quests() -> void:
 	quests = PlayerVariables.quest_list
 
 
-func _load_dummy_quests():
+func _load_dummy_quests() -> void:
 	for i in range(10):
 		var title = "Quest " + str(i)
 		var desc = "Desc: " + str(i)
@@ -23,7 +23,7 @@ func _load_dummy_quests():
 		quests.append(quest)
 
 
-func _load_ui():
+func _load_ui() -> void:
 	if !quests.size():
 		return
 	
@@ -38,9 +38,9 @@ func _load_ui():
 	item_list.grab_focus()
 
 
-func _on_itemList_item_selected(index):
+func _on_itemList_item_selected(index) -> void:
 	description.text = quests[index].description
 
 
-func _on_back_pressed():
+func _on_back_pressed() -> void:
 	pass # Replace with function body.
