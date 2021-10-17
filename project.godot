@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Quest",
+"language": "GDScript",
+"path": "res://menus/quest.gd"
+} ]
+_global_script_class_icons={
+"Quest": ""
+}
+
 [application]
 
 config/name="evo-world"
