@@ -43,4 +43,7 @@ func _on_itemList_item_selected(index) -> void:
 
 
 func _on_back_pressed() -> void:
+	var parent = get_parent()
+	queue_free()
+	parent.remove_child(self)
 	pass # Replace with function body.
