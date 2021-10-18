@@ -12,7 +12,7 @@ func _ready():
 
 
 func _load_quests() -> void:
-	quests = PlayerVariables.quest_list
+	quests = PlayerVariables.quest_list.duplicate()
 
 
 func _load_dummy_quests() -> void:
