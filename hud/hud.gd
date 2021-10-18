@@ -2,7 +2,7 @@ extends Node
 
 onready var clock: Control = $clock
 var journal: PackedScene  = preload("res://menus/journal.tscn")
-var journal_instance = null
+var journal_instance: Control = null
 
 func _process(_delta):
 	_handle_input()
@@ -21,7 +21,7 @@ func _handle_input() -> void:
 		_close_windows()
 
 
-func _add_window(instance) -> void:
+func _add_window(instance: Control) -> void:
 	get_tree().paused = true
 	add_child(instance)
 
