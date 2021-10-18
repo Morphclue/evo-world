@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menus/NESCyrillic.tres" type="DynamicFont" id=1]
+
+[node name="inventory" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vBox" type="VBoxContainer" parent="."]
+margin_left = 60.0
+margin_top = 10.0
+margin_right = 260.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 200, 160 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="vBox"]
+margin_right = 202.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 200, 130 )
+
+[node name="ColorRect" type="ColorRect" parent="vBox/Control"]
+margin_right = 202.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 202, 130 )
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="vBox/Control"]
+margin_top = 4.0
+margin_right = 202.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 200, 130 )
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer12" type="PanelContainer" parent="vBox/Control/GridContainer"]
+margin_left = 5.0
+margin_right = 95.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 95, 0 )
+
+[node name="PanelContainer13" type="PanelContainer" parent="vBox/Control/GridContainer"]
+margin_left = 99.0
+margin_right = 194.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 95, 0 )
+
+[node name="hBox" type="HBoxContainer" parent="vBox"]
+margin_top = 134.0
+margin_right = 202.0
+margin_bottom = 160.0
+
+[node name="panelContainer" type="PanelContainer" parent="vBox/hBox"]
+margin_right = 154.0
+margin_bottom = 26.0
+
+[node name="description" type="Label" parent="vBox/hBox/panelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 147.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 140, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Description"
+
+[node name="back" type="Button" parent="vBox/hBox"]
+margin_left = 158.0
+margin_right = 202.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
