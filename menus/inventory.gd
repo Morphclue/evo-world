@@ -2,17 +2,42 @@ extends Control
 
 const PANEL_MIN_SIZE_X: int = 95
 const PANEL_MIN_SIZE_Y: int = 20
+const INVENTORY_SIZE: int = 10
 
 const font: DynamicFont = preload("res://menus/NESCyrillic.tres")
-
-onready var grid_container = $vBox/control/gridContainer
+onready var grid_container: GridContainer = $vBox/control/gridContainer
 
 var items: Array = []
+var select_position: int = 0 setget _set_select_position
+signal hover_changed
 
 func _ready():
 	_load_items()
 	_load_dummy_items()
 	_load_ui()
+	self.connect("hover_changed", self, "_select_hover")
+
+
+func _process(_delta):
+	_handle_input()
+
+
+func _set_select_position(value):
+	select_position = value
+	print(value)
+	emit_signal("hover_changed")
+	pass
+
+
+func _handle_input():
+	if Input.is_action_just_pressed("ui_down"):
+		self.select_position = (select_position + 1)  % INVENTORY_SIZE
+	if Input.is_action_just_pressed("ui_up"):
+		self.select_position = (select_position - 1)  % INVENTORY_SIZE
+
+
+func _select_hover():
+	pass
 
 
 func _load_items() -> void:
@@ -20,7 +45,7 @@ func _load_items() -> void:
 
 
 func _load_dummy_items() -> void:
-	for i in range(10):
+	for i in range(INVENTORY_SIZE):
 		var item_name = "Item " + str(i + 1)
 		var desc = "Desc: " + str(i)
 		var item: Item = Item.new(item_name, desc)
