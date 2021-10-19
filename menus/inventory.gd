@@ -52,13 +52,15 @@ func _select_hover():
 	description.text = items[select_position].description
 
 
-
 func _load_items() -> void:
 	items = PlayerVariables.item_list.duplicate()
 
 
 func _load_dummy_items() -> void:
-	for i in range(INVENTORY_SIZE):
+	var apple: Item = Item.new("Apple", "Delicious! (Adds +20 food)")
+	items.append(apple)
+	
+	for i in range(INVENTORY_SIZE - 1):
 		var item_name = "Item " + str(i + 1)
 		var desc = "Desc: " + str(i + 1)
 		var item: Item = Item.new(item_name, desc)
