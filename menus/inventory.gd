@@ -6,6 +6,7 @@ const INVENTORY_SIZE: int = 10
 
 const font: DynamicFont = preload("res://menus/NESCyrillic.tres")
 onready var grid_container: GridContainer = $vBox/control/gridContainer
+onready var description: Label = $vBox/hBox/panelContainer/description
 
 var items: Array = []
 var select_position: int = 0 setget _set_select_position
@@ -15,18 +16,23 @@ func _ready():
 	_load_items()
 	_load_dummy_items()
 	_load_ui()
-	self.connect("hover_changed", self, "_select_hover")
+	_init_signals()
+	_select_hover()
 
 
 func _process(_delta):
 	_handle_input()
 
 
+func _init_signals():
+	var error_code = self.connect("hover_changed", self, "_select_hover")
+	if error_code != OK:
+		print("Failed to connect hover_changed")
+
+
 func _set_select_position(value):
 	select_position = value
-	print(value)
 	emit_signal("hover_changed")
-	pass
 
 
 func _handle_input():
@@ -37,7 +43,14 @@ func _handle_input():
 
 
 func _select_hover():
-	pass
+	var position = abs(select_position)
+	var label: Label = grid_container.get_child(position).get_child(0)
+	
+	for child in grid_container.get_children():
+		child.get_child(0).add_color_override("font_color", Color(1,1,1,1))
+	label.add_color_override("font_color", Color(1,1,0,1))
+	description.text = items[select_position].description
+
 
 
 func _load_items() -> void:
@@ -47,7 +60,7 @@ func _load_items() -> void:
 func _load_dummy_items() -> void:
 	for i in range(INVENTORY_SIZE):
 		var item_name = "Item " + str(i + 1)
-		var desc = "Desc: " + str(i)
+		var desc = "Desc: " + str(i + 1)
 		var item: Item = Item.new(item_name, desc)
 		items.append(item)
 
