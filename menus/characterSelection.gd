@@ -15,7 +15,6 @@ const left_arrow: StreamTexture = preload("res://menus/sprites/arrowl.png")
 const right_arrow: StreamTexture = preload("res://menus/sprites/arrow.png")
 const font: DynamicFont = preload("res://menus/NESCyrillic.tres")
 
-
 func _ready():
 	_initUI()
 

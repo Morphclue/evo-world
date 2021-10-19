@@ -10,7 +10,6 @@ onready var exit: Label = $centerContainer/container/options/exit
 var options: Array = []
 var current_selection: int = 0
 
-
 func _ready():
 	options = [start, settings, exit]
 	start.add_color_override("font_color", Color(1,1,0,1))

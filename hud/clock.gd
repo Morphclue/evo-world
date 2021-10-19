@@ -7,7 +7,6 @@ var hours: int = 0
 onready var small_pointer: Node2D = $background/small
 onready var big_pointer: Node2D = $background/big
 
-
 func _on_time_timeout():
 	_calculate_time()
 	_move_pointer()

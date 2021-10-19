@@ -20,7 +20,6 @@ var current_sprite: Dictionary = {
 	Constants.ACCESSORY : 0,
 }
 
-
 func _ready():
 	if PlayerVariables.current_sprite:
 		current_sprite = PlayerVariables.current_sprite
