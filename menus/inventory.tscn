@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://menus/NESCyrillic.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menus/inventory.gd" type="Script" id=2]
 
 [node name="inventory" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -19,12 +21,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="vBox"]
+[node name="control" type="Control" parent="vBox"]
 margin_right = 202.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 200, 130 )
 
-[node name="ColorRect" type="ColorRect" parent="vBox/Control"]
+[node name="colorRect" type="ColorRect" parent="vBox/control"]
 margin_right = 202.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 202, 130 )
@@ -33,7 +35,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="vBox/Control"]
+[node name="gridContainer" type="GridContainer" parent="vBox/control"]
 margin_top = 4.0
 margin_right = 202.0
 margin_bottom = 134.0
@@ -42,18 +44,6 @@ columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="PanelContainer12" type="PanelContainer" parent="vBox/Control/GridContainer"]
-margin_left = 5.0
-margin_right = 95.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 95, 0 )
-
-[node name="PanelContainer13" type="PanelContainer" parent="vBox/Control/GridContainer"]
-margin_left = 99.0
-margin_right = 194.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 95, 0 )
 
 [node name="hBox" type="HBoxContainer" parent="vBox"]
 margin_top = 134.0

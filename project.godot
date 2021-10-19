@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "Item",
+"language": "GDScript",
+"path": "res://menus/item.gd"
+}, {
+"base": "Node",
 "class": "Quest",
 "language": "GDScript",
 "path": "res://menus/quest.gd"
 } ]
 _global_script_class_icons={
+"Item": "",
 "Quest": ""
 }
 
