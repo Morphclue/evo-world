@@ -68,13 +68,15 @@ func _load_dummy_items() -> void:
 
 
 func _load_ui() -> void:
+	var unique_font = font.duplicate()
+	unique_font.size = 8
+	description.add_font_override("font", unique_font)
+	
 	for item in items:
 		var panel_container: PanelContainer = PanelContainer.new()
 		panel_container.rect_min_size = Vector2(PANEL_MIN_SIZE_X, PANEL_MIN_SIZE_Y)
 		
 		var label: Label = Label.new()
-		var unique_font = font.duplicate()
-		unique_font.size = 8
 		label.add_font_override("font", unique_font)
 		label.text = item.item_name
 		label.align = Label.ALIGN_CENTER
