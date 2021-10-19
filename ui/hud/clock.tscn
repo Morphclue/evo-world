@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://hud/sprites/minute.png" type="Texture" id=1]
-[ext_resource path="res://hud/sprites/clock.png" type="Texture" id=2]
-[ext_resource path="res://hud/sprites/hour.png" type="Texture" id=3]
-[ext_resource path="res://hud/clock.gd" type="Script" id=4]
+[ext_resource path="res://ui/hud/sprites/minute.png" type="Texture" id=1]
+[ext_resource path="res://ui/hud/sprites/clock.png" type="Texture" id=2]
+[ext_resource path="res://ui/hud/sprites/hour.png" type="Texture" id=3]
+[ext_resource path="res://ui/hud/clock.gd" type="Script" id=4]
 
 [node name="clock" type="Control"]
 pause_mode = 1

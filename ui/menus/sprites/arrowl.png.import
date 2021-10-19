@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/minute.png-928895bc987e53a20f35d4d6ecead966.stex"
+path="res://.import/arrowl.png-a21130fd6ad1a1e93b16ba6b20d99fce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hud/sprites/minute.png"
-dest_files=[ "res://.import/minute.png-928895bc987e53a20f35d4d6ecead966.stex" ]
+source_file="res://ui/menus/sprites/arrowl.png"
+dest_files=[ "res://.import/arrowl.png-a21130fd6ad1a1e93b16ba6b20d99fce.stex" ]
 
 [params]
 

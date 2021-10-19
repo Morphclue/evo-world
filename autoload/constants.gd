@@ -10,4 +10,3 @@ const HEAD: String = "Head"
 const BODY: String = "Body"
 const SHOES: String = "Shoes"
 const ACCESSORY: String = "Accessory"
-

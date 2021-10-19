@@ -6,8 +6,8 @@
 [ext_resource path="res://world/grass_tileset.tres" type="TileSet" id=4]
 [ext_resource path="res://world/sprites/grass_atlas.png" type="Texture" id=5]
 [ext_resource path="res://pet/pet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://hud/clock.tscn" type="PackedScene" id=7]
-[ext_resource path="res://hud/hud.gd" type="Script" id=8]
+[ext_resource path="res://ui/hud/clock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/hud/hud.gd" type="Script" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "grass_atlas.png 0"

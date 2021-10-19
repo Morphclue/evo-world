@@ -4,7 +4,7 @@ const PANEL_MIN_SIZE_X: int = 95
 const PANEL_MIN_SIZE_Y: int = 20
 const INVENTORY_SIZE: int = 10
 
-const font: DynamicFont = preload("res://menus/NESCyrillic.tres")
+const font: DynamicFont = preload("res://ui/fonts/NESCyrillic.tres")
 onready var grid_container: GridContainer = $vBox/control/gridContainer
 onready var description: Label = $vBox/hBox/panelContainer/description
 

@@ -1,8 +1,8 @@
 extends Node
 
 onready var clock: Control = $clock
-var journal_scene: PackedScene  = preload("res://menus/journal.tscn")
-var inventory_scene: PackedScene = preload("res://menus/inventory.tscn")
+var journal_scene: PackedScene  = preload("res://ui/menus/journal.tscn")
+var inventory_scene: PackedScene = preload("res://uI/menus/inventory.tscn")
 var journal: Control = null
 var inventory: Control = null
 

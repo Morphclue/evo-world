@@ -1,7 +1,7 @@
 extends Control
 
-const char_selection_scene: PackedScene = preload("res://menus/characterSelection.tscn")
-const settings_scene: PackedScene = preload("res://menus/settingsMenu.tscn")
+const char_selection_scene: PackedScene = preload("res://ui/menus/characterSelection.tscn")
+const settings_scene: PackedScene = preload("res://ui/menus/settingsMenu.tscn")
 
 onready var start: Label = $centerContainer/container/options/start
 onready var settings: Label = $centerContainer/container/options/settings

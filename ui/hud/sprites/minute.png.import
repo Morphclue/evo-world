@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hour.png-4363b8c4a4160071c238ac71a5f3a381.stex"
+path="res://.import/minute.png-ef277a6437fa8dc821c40dd7dec211dc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hud/sprites/hour.png"
-dest_files=[ "res://.import/hour.png-4363b8c4a4160071c238ac71a5f3a381.stex" ]
+source_file="res://ui/hud/sprites/minute.png"
+dest_files=[ "res://.import/minute.png-ef277a6437fa8dc821c40dd7dec211dc.stex" ]
 
 [params]
 
