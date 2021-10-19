@@ -13,7 +13,6 @@ const sprites: Array = [
 const world_scene: PackedScene = preload("res://world.tscn")
 const left_arrow: StreamTexture = preload("res://ui/menus/sprites/arrowl.png")
 const right_arrow: StreamTexture = preload("res://ui/menus/sprites/arrow.png")
-const font: DynamicFont = preload("res://ui/fonts/NESCyrillic.tres")
 
 func _ready():
 	_initUI()
@@ -31,8 +30,6 @@ func _initUI() -> void:
 		
 		name.text = sprite
 		number.text = '1'
-		name.add_font_override("font", font)
-		number.add_font_override("font", font)
 		
 		left_button.icon = left_arrow
 		right_button.icon = right_arrow
@@ -53,7 +50,6 @@ func _initUI() -> void:
 		v_box.add_child(h_box)
 	
 	var accept_button = Button.new()
-	accept_button.add_font_override("font", font)
 	accept_button.text = 'Accept'
 	accept_button.set("custom_styles/normal", StyleBoxEmpty.new())
 	accept_button.set("custom_styles/hover", StyleBoxEmpty.new())
