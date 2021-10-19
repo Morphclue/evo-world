@@ -46,4 +46,3 @@ func _on_back_pressed() -> void:
 	var parent: Node = get_parent()
 	queue_free()
 	parent.remove_child(self)
-	pass # Replace with function body.
