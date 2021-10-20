@@ -9,6 +9,7 @@ onready var grid_container: GridContainer = $vBox/control/gridContainer
 onready var description: Label = $vBox/hBox/panelContainer/description
 
 var items: Array = []
+var right_side: bool = false
 var select_position: int = 0 setget _set_select_position
 signal hover_changed
 
@@ -37,13 +38,18 @@ func _set_select_position(value):
 
 func _handle_input():
 	if Input.is_action_just_pressed("ui_down"):
-		self.select_position = (select_position + 1)  % INVENTORY_SIZE
+		self.select_position = (select_position + 1)  % (INVENTORY_SIZE / 2)
 	if Input.is_action_just_pressed("ui_up"):
-		self.select_position = (select_position - 1)  % INVENTORY_SIZE
+		self.select_position = (select_position - 1)  % (INVENTORY_SIZE / 2)
+	if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
+		right_side = !right_side
+		emit_signal("hover_changed")
 
 
 func _select_hover():
-	var position = abs(select_position)
+	var position = abs(select_position) * 2
+	if right_side:
+		position += 1
 	var label: Label = grid_container.get_child(position).get_child(0)
 	
 	for child in grid_container.get_children():
