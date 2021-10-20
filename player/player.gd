@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 const sprites: Script = preload("res://player/sprites/sprites.gd")
 
 var velocity: Vector2 = Vector2.ZERO
@@ -28,6 +27,7 @@ func _ready():
 
 func _physics_process(delta):
 	_move(delta)
+	_handle_colliding()
 
 
 func set_sprites() -> void:
@@ -64,6 +64,16 @@ func _move(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, Constants.ACCELERATION * delta)
 	
 	velocity = move_and_slide(velocity)
+
+
+func _handle_colliding():
+	if !Input.is_action_just_pressed("confirm"):
+		return
+		
+	if !ray.is_colliding():
+		return
+		
+	var target = ray.get_collider()
 
 
 func _look_in_direction(input: Vector2) -> void:
