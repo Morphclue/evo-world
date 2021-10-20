@@ -74,6 +74,7 @@ func _handle_colliding():
 		return
 	
 	var target = ray.get_collider().get_parent()
+	# TODO
 
 
 func _look_in_direction(input: Vector2) -> void:
