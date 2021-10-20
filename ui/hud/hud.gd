@@ -1,6 +1,7 @@
 extends Node
 
 onready var clock: Control = $clock
+onready var status: Control = $status
 var journal_scene: PackedScene  = preload("res://ui/menus/journal.tscn")
 var inventory_scene: PackedScene = preload("res://uI/menus/inventory.tscn")
 var journal: Control = null
@@ -38,5 +39,5 @@ func _close_windows() -> void:
 	journal = null
 	inventory = null
 	get_tree().paused = false
-	Utils.remove_children(self, [clock])
+	Utils.remove_children(self, [clock, status])
 	

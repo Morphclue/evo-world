@@ -30,6 +30,7 @@ offset = Vector2( 0, 9 )
 [node name="Accessory" type="Sprite" parent="SpriteLayer"]
 
 [node name="TestSprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
