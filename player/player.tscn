@@ -37,4 +37,6 @@ shape = SubResource( 1 )
 modulate = Color( 0.286275, 0.0509804, 0.862745, 1 )
 position = Vector2( 0, 13 )
 scale = Vector2( 0.2, 1 )
+enabled = true
 cast_to = Vector2( 0, 8 )
+collision_mask = 13
