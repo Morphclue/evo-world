@@ -1,9 +1,5 @@
 extends Control
 
-const PANEL_MIN_SIZE_X: int = 95
-const PANEL_MIN_SIZE_Y: int = 20
-const INVENTORY_SIZE: int = 10
-
 const font: DynamicFont = preload("res://ui/fonts/NESCyrillic.tres")
 onready var grid_container: GridContainer = $vBox/control/gridContainer
 onready var description: Label = $vBox/hBox/panelContainer/description
@@ -39,10 +35,10 @@ func _set_select_position(value):
 func _handle_input():
 	if Input.is_action_just_pressed("ui_down"):
 		#warning-ignore:integer_division
-		self.select_position = (select_position + 1)  % (INVENTORY_SIZE / 2)
+		self.select_position = (select_position + 1)  % (Constants.INVENTORY_SIZE / 2)
 	if Input.is_action_just_pressed("ui_up"):
 		#warning-ignore:integer_division
-		self.select_position = (select_position - 1)  % (INVENTORY_SIZE / 2)
+		self.select_position = (select_position - 1)  % (Constants.INVENTORY_SIZE / 2)
 	if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
 		right_side = !right_side
 		emit_signal("hover_changed")
@@ -68,7 +64,7 @@ func _load_dummy_items() -> void:
 	var apple: Item = Item.new("Apple", "Delicious! (Adds +20 food)")
 	items.append(apple)
 	
-	for i in range(INVENTORY_SIZE - 1):
+	for i in range(Constants.INVENTORY_SIZE - 1):
 		var item_name = "Item " + str(i + 1)
 		var desc = "Desc: " + str(i + 1)
 		var item: Item = Item.new(item_name, desc)
@@ -82,7 +78,10 @@ func _load_ui() -> void:
 	
 	for item in items:
 		var panel_container: PanelContainer = PanelContainer.new()
-		panel_container.rect_min_size = Vector2(PANEL_MIN_SIZE_X, PANEL_MIN_SIZE_Y)
+		panel_container.rect_min_size = Vector2(
+			Constants.PANEL_MIN_SIZE_X, 
+			Constants.PANEL_MIN_SIZE_Y
+		)
 		
 		var label: Label = Label.new()
 		label.add_font_override("font", unique_font)

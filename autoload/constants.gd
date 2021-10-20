@@ -10,3 +10,7 @@ const HEAD: String = "Head"
 const BODY: String = "Body"
 const SHOES: String = "Shoes"
 const ACCESSORY: String = "Accessory"
+
+const PANEL_MIN_SIZE_X: int = 95
+const PANEL_MIN_SIZE_Y: int = 20
+const INVENTORY_SIZE: int = 10
