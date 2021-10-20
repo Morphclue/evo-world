@@ -38,8 +38,10 @@ func _set_select_position(value):
 
 func _handle_input():
 	if Input.is_action_just_pressed("ui_down"):
+		#warning-ignore:integer_division
 		self.select_position = (select_position + 1)  % (INVENTORY_SIZE / 2)
 	if Input.is_action_just_pressed("ui_up"):
+		#warning-ignore:integer_division
 		self.select_position = (select_position - 1)  % (INVENTORY_SIZE / 2)
 	if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
 		right_side = !right_side
