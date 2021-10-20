@@ -25,3 +25,9 @@ offset = Vector2( 0, 8 )
 position = Vector2( 0, 14 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
