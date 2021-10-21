@@ -17,8 +17,8 @@ func _load_quests() -> void:
 
 func _load_dummy_quests() -> void:
 	for i in range(10):
-		var title = "Quest " + str(i + 1)
-		var desc = "Desc: " + str(i + 1)
+		var title: String = "Quest " + str(i + 1)
+		var desc: String = "Desc: " + str(i + 1)
 		var quest: Quest = Quest.new(title, desc)
 		quests.append(quest)
 

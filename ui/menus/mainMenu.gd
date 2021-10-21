@@ -15,7 +15,7 @@ func _ready() -> void:
 	start.add_color_override("font_color", Color(1,1,0,1))
 
 
-func _process(_delta) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_down"):
 		_hover(1)
 	elif Input.is_action_just_pressed("ui_up"):
@@ -41,4 +41,3 @@ func _hover(value: int) -> void:
 		option.add_color_override("font_color", Color(1,1,1,1))
 	
 	options[current_selection].add_color_override("font_color", Color(1,1,0,1))
-	pass

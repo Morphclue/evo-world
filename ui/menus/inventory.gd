@@ -45,7 +45,7 @@ func _handle_input() -> void:
 
 
 func _select_hover() -> void:
-	var position = abs(select_position) * 2
+	var position: int = abs(select_position) * 2
 	if right_side:
 		position += 1
 	var label: Label = grid_container.get_child(position).get_child(0)
@@ -65,14 +65,14 @@ func _load_dummy_items() -> void:
 	items.append(apple)
 	
 	for i in range(Constants.INVENTORY_SIZE - 1):
-		var item_name = "Item " + str(i + 1)
-		var desc = "Desc: " + str(i + 1)
+		var item_name: String = "Item " + str(i + 1)
+		var desc: String = "Desc: " + str(i + 1)
 		var item: Item = Item.new(item_name, desc)
 		items.append(item)
 
 
 func _load_ui() -> void:
-	var unique_font = font.duplicate()
+	var unique_font: DynamicFont = font.duplicate()
 	unique_font.size = 8
 	description.add_font_override("font", unique_font)
 	

@@ -20,15 +20,15 @@ func _ready() -> void:
 
 func _initUI() -> void:
 	for sprite in sprites:
-		var h_box = HBoxContainer.new()
-		var left_button = Button.new()
-		var name = Label.new()
-		var number = Label.new()
-		var right_button = Button.new()
+		var h_box: HBoxContainer = HBoxContainer.new()
+		var left_button: Button = Button.new()
+		var property: Label = Label.new()
+		var number: Label = Label.new()
+		var right_button: Button = Button.new()
 		
 		h_box.alignment = HALIGN_CENTER
 		
-		name.text = sprite
+		property.text = sprite
 		number.text = '1'
 		
 		left_button.icon = left_arrow
@@ -40,16 +40,16 @@ func _initUI() -> void:
 		left_button.set("custom_styles/focus", StyleBoxEmpty.new())
 		right_button.set("custom_styles/focus", StyleBoxEmpty.new())
 		
-		left_button.connect("pressed", self, "_on_button_pressed", [name, number, -1])
-		right_button.connect("pressed", self, "_on_button_pressed", [name, number, 1])
+		left_button.connect("pressed", self, "_on_button_pressed", [property, number, -1])
+		right_button.connect("pressed", self, "_on_button_pressed", [property, number, 1])
 		
 		h_box.add_child(left_button)
-		h_box.add_child(name)
+		h_box.add_child(property)
 		h_box.add_child(number)
 		h_box.add_child(right_button)
 		v_box.add_child(h_box)
 	
-	var accept_button = Button.new()
+	var accept_button: Button = Button.new()
 	accept_button.text = 'Accept'
 	accept_button.set("custom_styles/normal", StyleBoxEmpty.new())
 	accept_button.set("custom_styles/hover", StyleBoxEmpty.new())

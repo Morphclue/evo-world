@@ -15,7 +15,6 @@ func _on_time_timeout() -> void:
 func _move_pointer() -> void:
 	big_pointer.rotation_degrees = minutes * 6
 	small_pointer.rotation_degrees = 30 * hours
-	pass
 
 
 func _calculate_time() -> void:

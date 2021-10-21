@@ -12,7 +12,7 @@ func _ready() -> void:
 	_emit_change()
 
 
-func _physics_process(delta) -> void:
+func _physics_process(delta: float) -> void:
 	position = position.linear_interpolate(player.position, delta * Constants.FOLLOW_SPEED)
 
 

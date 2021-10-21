@@ -8,5 +8,5 @@ func _ready() -> void:
 	sprite.play()
 
 
-func _on_triggerZone_player_entered(value) -> void:
+func _on_triggerZone_player_entered(value: bool) -> void:
 	button.visible = value

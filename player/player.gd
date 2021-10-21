@@ -46,7 +46,7 @@ func set_sprites() -> void:
 
 
 func _move(delta: float) -> void:
-	var input = Vector2.ZERO
+	var input: Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("right"):
 		input.x += 1
 	if Input.is_action_pressed("left"):
@@ -78,5 +78,5 @@ func _handle_colliding() -> void:
 
 
 func _look_in_direction(input: Vector2) -> void:
-	var look_direction = atan2(-input.x, input.y)
+	var look_direction: float = atan2(-input.x, input.y)
 	ray.rotation = look_direction
