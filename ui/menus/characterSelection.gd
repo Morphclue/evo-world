@@ -30,6 +30,16 @@ func _handle_input():
 		self.current_selection -= 1
 	if Input.is_action_just_pressed("ui_down"):
 		self.current_selection += 1
+	if Input.is_action_just_pressed("ui_left"):
+		_simulate_button_press(-1)
+	if Input.is_action_just_pressed("ui_right"):
+		_simulate_button_press(1)
+
+
+func _simulate_button_press(value: int):
+	var option: Label = v_box.get_child(current_selection).get_child(1)
+	var number: Label = v_box.get_child(current_selection).get_child(2)
+	_on_button_pressed(option, number, value)
 
 
 func _set_selection(value: int):
@@ -116,7 +126,7 @@ func _accept_button_pressed() -> void:
 	Utils.switch_scene(self, world_scene)
 
 
-func _on_button_pressed(_name: Label, _number: Label, _value: int) -> void:
-	player.current_sprite[_name.text] += _value
+func _on_button_pressed(option: Label, number: Label, value: int) -> void:
+	player.current_sprite[option.text] += value
 	player.set_sprites()
-	_number.text = str(player.current_sprite[_name.text] + 1)
+	number.text = str(player.current_sprite[option.text] + 1)
