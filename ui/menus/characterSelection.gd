@@ -34,6 +34,8 @@ func _handle_input():
 		_simulate_button_press(-1)
 	if Input.is_action_just_pressed("ui_right"):
 		_simulate_button_press(1)
+	if Input.is_action_just_pressed("ui_accept"):
+		_accept_button_pressed()
 
 
 func _simulate_button_press(value: int):
