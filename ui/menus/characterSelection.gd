@@ -14,10 +14,11 @@ const world_scene: PackedScene = preload("res://world.tscn")
 const left_arrow: StreamTexture = preload("res://ui/menus/sprites/arrowl.png")
 const right_arrow: StreamTexture = preload("res://ui/menus/sprites/arrow.png")
 
-var current_selection: int = 1
+var current_selection: int = 1 setget _set_selection
 
 func _ready() -> void:
 	_initUI()
+	_hover()
 
 
 func _process(_delta: float) -> void:
@@ -26,10 +27,14 @@ func _process(_delta: float) -> void:
 
 func _handle_input():
 	if Input.is_action_just_pressed("ui_up"):
-		current_selection -= 1
+		self.current_selection -= 1
 	if Input.is_action_just_pressed("ui_down"):
-		current_selection += 1
-	current_selection = int(clamp(current_selection, 1, sprites.size()))
+		self.current_selection += 1
+
+
+func _set_selection(value: int):
+	current_selection = value
+	current_selection = int(clamp(current_selection, 1, sprites.size() + 1))
 	_hover()
 
 
@@ -86,6 +91,11 @@ func _initUI() -> void:
 
 func _hover():
 	_clear_hover()
+	
+	if current_selection == sprites.size() + 1:
+		v_box.get_child(current_selection).modulate = Color(1,1,0,1)
+		return
+	
 	var option: Label = v_box.get_child(current_selection).get_child(1)
 	var number: Label = v_box.get_child(current_selection).get_child(2)
 	
@@ -99,6 +109,7 @@ func _clear_hover():
 		var number: Label = v_box.get_child(count).get_child(2)
 		option.add_color_override("font_color", Color(1,1,1,1))
 		number.add_color_override("font_color", Color(1,1,1,1))
+	v_box.get_child(sprites.size() + 1).modulate = Color(1,1,1,1)
 
 
 func _accept_button_pressed() -> void:
