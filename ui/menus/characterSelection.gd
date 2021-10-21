@@ -103,23 +103,23 @@ func _hover():
 	_clear_hover()
 	
 	if current_selection == sprites.size() + 1:
-		v_box.get_child(current_selection).modulate = Color(1,1,0,1)
+		v_box.get_child(current_selection).modulate = Constants.YELLOW
 		return
 	
 	var option: Label = v_box.get_child(current_selection).get_child(1)
 	var number: Label = v_box.get_child(current_selection).get_child(2)
 	
-	option.add_color_override("font_color", Color(1,1,0,1))
-	number.add_color_override("font_color", Color(1,1,0,1))
+	option.add_color_override("font_color", Constants.YELLOW)
+	number.add_color_override("font_color", Constants.YELLOW)
 
 
 func _clear_hover():
 	for count in range(1, v_box.get_children().size() - 1):
 		var option: Label = v_box.get_child(count).get_child(1)
 		var number: Label = v_box.get_child(count).get_child(2)
-		option.add_color_override("font_color", Color(1,1,1,1))
-		number.add_color_override("font_color", Color(1,1,1,1))
-	v_box.get_child(sprites.size() + 1).modulate = Color(1,1,1,1)
+		option.add_color_override("font_color", Constants.WHITE)
+		number.add_color_override("font_color", Constants.WHITE)
+	v_box.get_child(sprites.size() + 1).modulate = Constants.WHITE
 
 
 func _accept_button_pressed() -> void:

@@ -51,8 +51,8 @@ func _select_hover() -> void:
 	var label: Label = grid_container.get_child(position).get_child(0)
 	
 	for child in grid_container.get_children():
-		child.get_child(0).add_color_override("font_color", Color(1,1,1,1))
-	label.add_color_override("font_color", Color(1,1,0,1))
+		child.get_child(0).add_color_override("font_color", Constants.WHITE)
+	label.add_color_override("font_color", Constants.YELLOW)
 	description.text = items[select_position].description
 
 

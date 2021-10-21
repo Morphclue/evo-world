@@ -12,7 +12,7 @@ var current_selection: int = 0
 
 func _ready() -> void:
 	options = [start, settings, exit]
-	start.add_color_override("font_color", Color(1,1,0,1))
+	start.add_color_override("font_color", Constants.YELLOW)
 
 
 func _process(_delta: float) -> void:
@@ -38,6 +38,6 @@ func _hover(value: int) -> void:
 	current_selection = current_selection % 3 
 	
 	for option in options:
-		option.add_color_override("font_color", Color(1,1,1,1))
+		option.add_color_override("font_color", Constants.WHITE)
 	
-	options[current_selection].add_color_override("font_color", Color(1,1,0,1))
+	options[current_selection].add_color_override("font_color", Constants.YELLOW)
