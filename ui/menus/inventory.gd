@@ -9,7 +9,7 @@ var right_side: bool = false
 var select_position: int = 0 setget _set_select_position
 signal hover_changed
 
-func _ready():
+func _ready() -> void:
 	_load_items()
 	_load_dummy_items()
 	_load_ui()
@@ -17,22 +17,22 @@ func _ready():
 	_select_hover()
 
 
-func _process(_delta):
+func _process(_delta) -> void:
 	_handle_input()
 
 
-func _init_signals():
+func _init_signals() -> void:
 	var error_code = self.connect("hover_changed", self, "_select_hover")
 	if error_code != OK:
 		print("Failed to connect hover_changed")
 
 
-func _set_select_position(value):
+func _set_select_position(value) -> void:
 	select_position = value
 	emit_signal("hover_changed")
 
 
-func _handle_input():
+func _handle_input() -> void:
 	if Input.is_action_just_pressed("ui_down"):
 		#warning-ignore:integer_division
 		self.select_position = (select_position + 1)  % (Constants.INVENTORY_SIZE / 2)
@@ -44,7 +44,7 @@ func _handle_input():
 		emit_signal("hover_changed")
 
 
-func _select_hover():
+func _select_hover() -> void:
 	var position = abs(select_position) * 2
 	if right_side:
 		position += 1
@@ -92,7 +92,7 @@ func _load_ui() -> void:
 		grid_container.add_child(panel_container)
 
 
-func _on_back_pressed():
+func _on_back_pressed() -> void:
 	var parent: Node = get_parent()
 	queue_free()
 	parent.remove_child(self)

@@ -66,7 +66,7 @@ func _move(delta: float) -> void:
 	velocity = move_and_slide(velocity)
 
 
-func _handle_colliding():
+func _handle_colliding() -> void:
 	if !Input.is_action_just_pressed("confirm"):
 		return
 		

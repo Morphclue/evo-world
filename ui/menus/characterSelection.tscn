@@ -24,13 +24,13 @@ __meta__ = {
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56.0615, 109.211 )
 
-[node name="SpriteLayer" parent="player" index="0"]
+[node name="SpriteLayer" parent="player" index="1"]
 scale = Vector2( 2, 2 )
 
-[node name="CollisionShape2D" parent="player" index="2"]
+[node name="CollisionShape2D" parent="player" index="3"]
 visible = false
 
-[node name="RayCast2D" parent="player" index="3"]
+[node name="RayCast2D" parent="player" index="4"]
 visible = false
 
 [node name="centerContainer" type="CenterContainer" parent="."]

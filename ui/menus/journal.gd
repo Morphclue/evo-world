@@ -5,7 +5,7 @@ onready var item_list: ItemList = $vBox/itemList
 onready var description: Label = $vBox/hBox/panelContainer/description
 onready var back: Button = $vBox/hBox/back
 
-func _ready():
+func _ready() -> void:
 	_load_quests()
 	_load_dummy_quests()
 	_load_ui()

@@ -8,24 +8,24 @@ var status: Dictionary = {
 	respect = 100
 }
 
-func _ready():
+func _ready() -> void:
 	_emit_change()
 
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	position = position.linear_interpolate(player.position, delta * Constants.FOLLOW_SPEED)
 
 
-func _emit_change():
+func _emit_change() -> void:
 	EventBus.emit_signal("status_changed", status)
 
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	_decrease_values()
 	_emit_change()
 
 
-func _decrease_values():
+func _decrease_values() -> void:
 	status.hunger -= 2
 	status.toilet -= 1
 	status.mood -= 1

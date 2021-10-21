@@ -14,7 +14,7 @@ const world_scene: PackedScene = preload("res://world.tscn")
 const left_arrow: StreamTexture = preload("res://ui/menus/sprites/arrowl.png")
 const right_arrow: StreamTexture = preload("res://ui/menus/sprites/arrow.png")
 
-func _ready():
+func _ready() -> void:
 	_initUI()
 
 

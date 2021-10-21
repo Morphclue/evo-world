@@ -7,7 +7,7 @@ var inventory_scene: PackedScene = preload("res://uI/menus/inventory.tscn")
 var journal: Control = null
 var inventory: Control = null
 
-func _process(_delta):
+func _process(_delta) -> void:
 	_handle_input()
 
 

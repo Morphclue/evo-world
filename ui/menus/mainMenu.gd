@@ -10,12 +10,12 @@ onready var exit: Label = $centerContainer/container/options/exit
 var options: Array = []
 var current_selection: int = 0
 
-func _ready():
+func _ready() -> void:
 	options = [start, settings, exit]
 	start.add_color_override("font_color", Color(1,1,0,1))
 
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_down"):
 		_hover(1)
 	elif Input.is_action_just_pressed("ui_up"):
