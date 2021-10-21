@@ -45,7 +45,7 @@ func _handle_input() -> void:
 
 
 func _select_hover() -> void:
-	var position: int = abs(select_position) * 2
+	var position: int = int(abs(select_position) * 2)
 	if right_side:
 		position += 1
 	var label: Label = grid_container.get_child(position).get_child(0)

@@ -73,7 +73,7 @@ func _handle_colliding() -> void:
 	if !ray.is_colliding():
 		return
 	
-	var target = ray.get_collider().get_parent()
+	var _target = ray.get_collider().get_parent()
 	# TODO
 
 

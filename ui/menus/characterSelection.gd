@@ -14,21 +14,36 @@ const world_scene: PackedScene = preload("res://world.tscn")
 const left_arrow: StreamTexture = preload("res://ui/menus/sprites/arrowl.png")
 const right_arrow: StreamTexture = preload("res://ui/menus/sprites/arrow.png")
 
+var current_selection: int = 1
+
 func _ready() -> void:
 	_initUI()
+
+
+func _process(_delta: float) -> void:
+	_handle_input()
+
+
+func _handle_input():
+	if Input.is_action_just_pressed("ui_up"):
+		current_selection -= 1
+	if Input.is_action_just_pressed("ui_down"):
+		current_selection += 1
+	current_selection = int(clamp(current_selection, 1, sprites.size()))
+	_hover()
 
 
 func _initUI() -> void:
 	for sprite in sprites:
 		var h_box: HBoxContainer = HBoxContainer.new()
 		var left_button: Button = Button.new()
-		var property: Label = Label.new()
+		var option: Label = Label.new()
 		var number: Label = Label.new()
 		var right_button: Button = Button.new()
 		
 		h_box.alignment = HALIGN_CENTER
 		
-		property.text = sprite
+		option.text = sprite
 		number.text = '1'
 		
 		left_button.icon = left_arrow
@@ -40,11 +55,21 @@ func _initUI() -> void:
 		left_button.set("custom_styles/focus", StyleBoxEmpty.new())
 		right_button.set("custom_styles/focus", StyleBoxEmpty.new())
 		
-		left_button.connect("pressed", self, "_on_button_pressed", [property, number, -1])
-		right_button.connect("pressed", self, "_on_button_pressed", [property, number, 1])
+		var _err1: int = left_button.connect(
+			"pressed",
+			self,
+			"_on_button_pressed",
+			[option, number, -1]
+		)
+		var _err2: int =  right_button.connect(
+			"pressed",
+			self,
+			"_on_button_pressed",
+			[option, number, 1]
+		)
 		
 		h_box.add_child(left_button)
-		h_box.add_child(property)
+		h_box.add_child(option)
 		h_box.add_child(number)
 		h_box.add_child(right_button)
 		v_box.add_child(h_box)
@@ -54,9 +79,26 @@ func _initUI() -> void:
 	accept_button.set("custom_styles/normal", StyleBoxEmpty.new())
 	accept_button.set("custom_styles/hover", StyleBoxEmpty.new())
 	accept_button.set("custom_styles/focus", StyleBoxEmpty.new())
-	accept_button.connect("pressed", self, "_accept_button_pressed")
+	var _err: int = accept_button.connect("pressed", self, "_accept_button_pressed")
 	
 	v_box.add_child(accept_button)
+
+
+func _hover():
+	_clear_hover()
+	var option: Label = v_box.get_child(current_selection).get_child(1)
+	var number: Label = v_box.get_child(current_selection).get_child(2)
+	
+	option.add_color_override("font_color", Color(1,1,0,1))
+	number.add_color_override("font_color", Color(1,1,0,1))
+
+
+func _clear_hover():
+	for count in range(1, v_box.get_children().size() - 1):
+		var option: Label = v_box.get_child(count).get_child(1)
+		var number: Label = v_box.get_child(count).get_child(2)
+		option.add_color_override("font_color", Color(1,1,1,1))
+		number.add_color_override("font_color", Color(1,1,1,1))
 
 
 func _accept_button_pressed() -> void:
