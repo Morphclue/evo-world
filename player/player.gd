@@ -78,5 +78,5 @@ func _handle_colliding() -> void:
 
 
 func _look_in_direction(input: Vector2) -> void:
-	var look_direction: float = atan2(-input.x, input.y)
+	var look_direction: float = -atan2(input.x, input.y)
 	ray.rotation = look_direction
