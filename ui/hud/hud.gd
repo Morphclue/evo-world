@@ -7,8 +7,18 @@ var inventory_scene: PackedScene = preload("res://uI/menus/inventory.tscn")
 var journal: Control = null
 var inventory: Control = null
 
+func _ready() -> void: 
+	_init_signals()
+
+
 func _process(_delta) -> void:
 	_handle_input()
+
+
+func _init_signals() -> void:
+	var error_code = EventBus.connect("back_button_pressed", self, "_close_windows")
+	if error_code != OK:
+		print("Failed to connect back_button_pressed")
 
 
 func _handle_input() -> void:

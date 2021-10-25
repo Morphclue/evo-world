@@ -93,6 +93,4 @@ func _load_ui() -> void:
 
 
 func _on_back_pressed() -> void:
-	var parent: Node = get_parent()
-	queue_free()
-	parent.remove_child(self)
+	EventBus.emit_signal("back_button_pressed")
