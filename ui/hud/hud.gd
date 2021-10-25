@@ -16,9 +16,9 @@ func _process(_delta) -> void:
 
 
 func _init_signals() -> void:
-	var error_code = EventBus.connect("back_button_pressed", self, "_close_windows")
+	var error_code = EventBus.connect("close_button_pressed", self, "_close_windows")
 	if error_code != OK:
-		print("Failed to connect back_button_pressed")
+		print("Failed to connect close_button_pressed")
 
 
 func _handle_input() -> void:

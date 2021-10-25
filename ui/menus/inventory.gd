@@ -92,5 +92,5 @@ func _load_ui() -> void:
 		grid_container.add_child(panel_container)
 
 
-func _on_back_pressed() -> void:
-	EventBus.emit_signal("back_button_pressed")
+func _on_close_pressed() -> void:
+	EventBus.emit_signal("close_button_pressed")

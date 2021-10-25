@@ -42,5 +42,5 @@ func _on_itemList_item_selected(index) -> void:
 	description.text = quests[index].description
 
 
-func _on_back_pressed() -> void:
-	EventBus.emit_signal("back_button_pressed")
+func _on_close_pressed() -> void:
+	EventBus.emit_signal("close_button_pressed")
