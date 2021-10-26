@@ -70,7 +70,7 @@ position = Vector2( 98.3458, 48.8626 )
 [node name="npc" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 225.659, 46.8433 )
 
-[node name="hud" type="Node" parent="."]
+[node name="hud" type="CanvasLayer" parent="."]
 pause_mode = 2
 script = ExtResource( 8 )
 
