@@ -73,8 +73,8 @@ func _handle_colliding() -> void:
 	if !ray.is_colliding():
 		return
 	
-	var _target = ray.get_collider().get_parent()
-	# TODO
+	var target = ray.get_collider().get_parent()
+	EventBus.emit_signal("confirm_button_pressed", target)
 
 
 func _look_in_direction(input: Vector2) -> void:

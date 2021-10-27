@@ -1,7 +1,7 @@
 {
 	"events": [
 		{
-			"character": "",
+			"character": "character-1635330127.json",
 			"event_id": "dialogic_010",
 			"options": [
 
@@ -17,11 +17,27 @@
 			"value": ""
 		},
 		{
+			"character": "character-1635330127.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Let's start!"
+		},
+		{
+			"emit_signal": "train",
+			"event_id": "dialogic_040"
+		},
+		{
 			"choice": "No",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
 			"value": ""
+		},
+		{
+			"character": "character-1635330127.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay, maybe next time!"
 		},
 		{
 			"event_id": "dialogic_013"

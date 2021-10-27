@@ -11,3 +11,8 @@ func remove_children(parent: Node, ignore = []) -> void:
 			continue
 		parent.remove_child(n)
 		n.queue_free()
+
+
+func signal_error_code(error_code: int, signal_name: String) -> void:
+	if error_code != OK:
+		print("Failed to connect " + signal_name)

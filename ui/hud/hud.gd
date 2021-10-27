@@ -6,6 +6,7 @@ var journal_scene: PackedScene  = preload("res://ui/menus/journal.tscn")
 var inventory_scene: PackedScene = preload("res://uI/menus/inventory.tscn")
 var journal: Control = null
 var inventory: Control = null
+var current_dialogue: CanvasLayer = null
 
 func _ready() -> void: 
 	_init_signals()
@@ -16,12 +17,53 @@ func _process(_delta) -> void:
 
 
 func _init_signals() -> void:
-	var error_code = EventBus.connect("close_button_pressed", self, "_close_windows")
-	if error_code != OK:
-		print("Failed to connect close_button_pressed")
+	Utils.signal_error_code(
+		EventBus.connect("close_button_pressed", self, "_close_windows"),
+		 "close_button_pressed"
+	)
+
+	Utils.signal_error_code(
+		EventBus.connect("start_dialogue", self, "_start_dialogue"),
+		 "close_button_pressed"
+	)
+
+
+func _start_dialogue(timeline: String) -> void:
+	current_dialogue = Dialogic.start(timeline)
+	
+	Utils.signal_error_code(
+		current_dialogue.connect("dialogic_signal", self, "_dialog_choice"),
+		"timeline_end"
+	)
+	
+	Utils.signal_error_code(
+		current_dialogue.connect("timeline_end", self, "_end_dialogue"),
+		"timeline_end"
+	)
+	
+	status.visible = false
+	get_tree().paused = true
+	add_child(current_dialogue)
+
+
+func _end_dialogue(_timeline: String) -> void:
+	status.visible = true
+	get_tree().paused = false
+	current_dialogue = null
+
+
+func _dialog_choice(argument: String) -> void:
+	match argument:
+		"train":
+			EventBus.emit_signal("skip_time", 1)
+		_:
+			print(argument + " not implemented yet.")
 
 
 func _handle_input() -> void:
+	if current_dialogue != null:
+		return
+	
 	if Input.is_action_just_pressed("journal"):
 		if is_instance_valid(journal):
 			_close_windows()
