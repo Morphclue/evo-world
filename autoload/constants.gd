@@ -17,3 +17,7 @@ const INVENTORY_SIZE: int = 10
 
 const YELLOW: Color = Color(1, 1, 0, 1)
 const WHITE: Color = Color(1, 1, 1, 1)
+
+const MIN_GRID_ZOOM: float = 0.5
+const MAX_GRID_ZOOM: int = 5
+const ZOOM_FACTOR: float = 0.1

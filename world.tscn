@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://npc/npc.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/hud/status.tscn" type="PackedScene" id=10]
 [ext_resource path="res://world/followCamera.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ui/hud/miniMap.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "grass_atlas.png 0"
@@ -81,3 +82,10 @@ script = ExtResource( 8 )
 [node name="clock" parent="hud" instance=ExtResource( 7 )]
 
 [node name="status" parent="hud" instance=ExtResource( 10 )]
+
+[node name="miniMap" parent="hud" instance=ExtResource( 12 )]
+margin_left = 280.0
+margin_right = 322.0
+player = NodePath("../../YSort/player/RayCast2D")
+
+[editable path="YSort/player"]
