@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/hud/sprites/grid.png" type="Texture" id=1]
 [ext_resource path="res://ui/hud/sprites/player-arrow.png" type="Texture" id=2]
 [ext_resource path="res://ui/hud/miniMap.gd" type="Script" id=3]
+[ext_resource path="res://ui/hud/sprites/quest-marker.png" type="Texture" id=4]
 
 [node name="miniMap" type="MarginContainer"]
 margin_right = 42.0
@@ -39,6 +40,11 @@ texture = ExtResource( 1 )
 stretch_mode = 2
 
 [node name="playerMarker" type="Sprite" parent="gridContainer/grid"]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
+
+[node name="questMarker" type="Sprite" parent="gridContainer/grid"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
 
 [connection signal="gui_input" from="." to="." method="_on_miniMap_gui_input"]

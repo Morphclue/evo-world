@@ -72,7 +72,9 @@ limit_top = -128
 limit_right = 576
 limit_bottom = 336
 
-[node name="npc" parent="YSort" instance=ExtResource( 9 )]
+[node name="npc" parent="YSort" groups=[
+"minimap_objects",
+] instance=ExtResource( 9 )]
 position = Vector2( 225.659, 46.8433 )
 
 [node name="hud" type="CanvasLayer" parent="."]
