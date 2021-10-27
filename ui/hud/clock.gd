@@ -7,6 +7,22 @@ var hours: int = 0
 onready var small_pointer: Node2D = $background/small
 onready var big_pointer: Node2D = $background/big
 
+func _ready() -> void:
+	_init_signals()
+
+
+func _init_signals():
+	Utils.signal_error_code(
+		EventBus.connect("skip_time", self, "_skip_time"),
+		"skip_time"
+	)
+
+
+func _skip_time(_minutes: int) -> void:
+	for _i in range(_minutes):
+		_calculate_time()
+
+
 func _on_time_timeout() -> void:
 	_calculate_time()
 	_move_pointer()

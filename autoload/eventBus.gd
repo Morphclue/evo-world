@@ -9,4 +9,4 @@ signal confirm_button_pressed(target)
 #warning-ignore:unused_signal
 signal start_dialogue(timeline)
 #warning-ignore:unused_signal
-signal skip_time(amount)
+signal skip_time(minutes)

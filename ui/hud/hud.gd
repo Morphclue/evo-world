@@ -55,7 +55,7 @@ func _end_dialogue(_timeline: String) -> void:
 func _dialog_choice(argument: String) -> void:
 	match argument:
 		"train":
-			EventBus.emit_signal("skip_time", 1)
+			EventBus.emit_signal("skip_time", 60)
 		_:
 			print(argument + " not implemented yet.")
 
