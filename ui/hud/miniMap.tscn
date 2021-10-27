@@ -44,6 +44,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="questMarker" type="Sprite" parent="gridContainer/grid"]
+visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 

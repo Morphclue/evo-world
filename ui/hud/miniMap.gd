@@ -38,7 +38,8 @@ func _init_markers():
 
 func _set_markers_position():
 	for item in markers:
-		var obj_pos = (item.position - get_node(player).get_parent().position)  * grid_scale + grid.rect_size  / 2
+		var obj_pos = (item.position - get_node(player).get_parent().position) 
+		obj_pos = obj_pos * grid_scale + grid.rect_size  / 2
 		obj_pos.x = clamp(obj_pos.x, 0, grid.rect_size.x)
 		obj_pos.y = clamp(obj_pos.y, 0, grid.rect_size.y)
 		if grid.get_rect().has_point(obj_pos + grid.rect_position):
