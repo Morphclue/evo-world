@@ -22,9 +22,10 @@ func _process(_delta) -> void:
 
 
 func _init_signals() -> void:
-	var error_code = self.connect("hover_changed", self, "_select_hover")
-	if error_code != OK:
-		print("Failed to connect hover_changed")
+	Utils.signal_error_code(
+		self.connect("hover_changed", self, "_select_hover"),
+		"hover_changed"
+	)
 
 
 func _set_select_position(value) -> void:

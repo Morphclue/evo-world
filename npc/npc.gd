@@ -12,9 +12,10 @@ func _ready() -> void:
 
 
 func _init_signals() -> void:
-	var error_code = EventBus.connect("confirm_button_pressed", self, "_start_dialogue")
-	if error_code != OK:
-		print("Failed to connect confirm_button_pressed")
+	Utils.signal_error_code(
+		EventBus.connect("confirm_button_pressed", self, "_start_dialogue"),
+		"confirm_button_pressed"
+	)
 
 
 func _start_dialogue(target):

@@ -10,9 +10,10 @@ func _ready() -> void:
 
 
 func _connect_signals() -> void:
-	var error_code: int = EventBus.connect("status_changed", self, "_on_status_changed")
-	if error_code != OK:
-		print("Failed to connect status_changed")
+	Utils.signal_error_code(
+		EventBus.connect("status_changed", self, "_on_status_changed"),
+		"status_changed"
+	)
 
 
 func _on_status_changed(status: Dictionary) -> void:
