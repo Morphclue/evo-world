@@ -4,19 +4,19 @@ var start_position: Vector2
 var target_position: Vector2
 var velocity: Vector2
 var state = WANDER
-const MAX_RANGE: int = 20
+const minimap_icon = Constants.ENEMY_ICON
 
 enum {
 	STOP,
 	WANDER,
 	CHASE_PLAYER,
-	MOVE_BACK
+	MOVE_BACK,
 }
 
 onready var timer: Timer = $timer
 
 func _ready():
-	# randomize()
+	randomize()
 	start_position = global_position
 	target_position = global_position
 	velocity = Vector2.ZERO
@@ -40,8 +40,8 @@ func _physics_process(delta: float) -> void:
 
 func _change_target() -> void:
 	var change: Vector2 = Vector2(
-		rand_range(-MAX_RANGE, MAX_RANGE),
-		rand_range(-MAX_RANGE, MAX_RANGE)
+		rand_range(-Constants.MAX_WANDER_RANGE, Constants.MAX_WANDER_RANGE),
+		rand_range(-Constants.MAX_WANDER_RANGE, Constants.MAX_WANDER_RANGE)
 	)
 	
 	target_position = start_position + change

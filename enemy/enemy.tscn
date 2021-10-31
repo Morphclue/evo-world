@@ -9,7 +9,9 @@
 radius = 4.28931
 height = 7.42915
 
-[node name="enemy" type="KinematicBody2D"]
+[node name="enemy" type="KinematicBody2D" groups=[
+"minimap_objects",
+]]
 collision_layer = 4
 script = ExtResource( 4 )
 

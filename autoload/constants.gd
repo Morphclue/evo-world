@@ -22,3 +22,6 @@ const MIN_GRID_ZOOM: float = 0.5
 const MAX_GRID_ZOOM: int = 5
 const ZOOM_FACTOR: float = 0.1
 const QUEST_ICON: String = "quest"
+const ENEMY_ICON: String = "enemy"
+
+const MAX_WANDER_RANGE: int = 20

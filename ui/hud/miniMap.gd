@@ -8,7 +8,11 @@ var zoom: float = 1.5 setget _set_zoom
 onready var grid: TextureRect = $gridContainer/grid
 onready var player_marker: Sprite = $gridContainer/grid/playerMarker
 onready var quest_marker: Sprite = $gridContainer/grid/questMarker
-onready var icons: Dictionary = {"quest": quest_marker}
+onready var enemy_marker: Sprite = $gridContainer/grid/enemyMarker
+onready var icons: Dictionary = {
+	"quest": quest_marker,
+	"enemy": enemy_marker,
+}
 
 var markers: Dictionary = {}
 var sprite_scaling = 0.5
