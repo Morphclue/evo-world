@@ -29,8 +29,13 @@ shape = SubResource( 1 )
 [node name="triggerZone" parent="." instance=ExtResource( 3 )]
 
 [node name="collisionShape2D" parent="triggerZone" index="0"]
-scale = Vector2( 5, 5 )
+scale = Vector2( 4, 4 )
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
 [connection signal="player_entered" from="triggerZone" to="." method="_on_triggerZone_player_entered"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 
 [editable path="triggerZone"]
