@@ -96,3 +96,7 @@ func _on_timer_timeout():
 			return
 		_:
 			state = MOVE_BACK
+
+
+func _on_fightTrigger_body_entered(body: PhysicsBody2D) -> void:
+	pass
