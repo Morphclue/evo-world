@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemy/sprites/Ghost_16x28.png" type="Texture" id=1]
+[ext_resource path="res://world/sprites/shadow.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.28931
+height = 7.42915
+
+[node name="enemy" type="KinematicBody2D"]
+collision_layer = 4
+
+[node name="shadow" type="Sprite" parent="."]
+position = Vector2( -0.551212, -5.03968 )
+texture = ExtResource( 2 )
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0, 0.236237 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -15 )
+
+[node name="collisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
