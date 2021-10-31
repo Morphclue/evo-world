@@ -95,4 +95,4 @@ func _on_timer_timeout():
 		MOVE_BACK:
 			return
 		_:
-			state = WANDER
+			state = MOVE_BACK
