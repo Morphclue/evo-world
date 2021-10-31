@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
+export (NodePath) var player
 var start_position: Vector2
 var target_position: Vector2
 var velocity: Vector2
 var state = WANDER
-const minimap_icon = Constants.ENEMY_ICON
 
 enum {
 	STOP,
@@ -13,6 +13,7 @@ enum {
 	MOVE_BACK,
 }
 
+const minimap_icon = Constants.ENEMY_ICON
 onready var timer: Timer = $timer
 
 func _ready():
@@ -32,9 +33,9 @@ func _physics_process(delta: float) -> void:
 			if global_position.distance_to(target_position) <= 1:
 				state = STOP
 		CHASE_PLAYER:
-			_chase_player()
+			_chase_player(delta)
 		MOVE_BACK:
-			_move_back()
+			_move_back(delta)
 	velocity = move_and_slide(velocity)
 
 
@@ -63,19 +64,23 @@ func _stop_movement(delta: float) -> void:
 	)
 
 
-func _chase_player() -> void:
-	pass
+func _chase_player(delta: float) -> void:
+	if !player:
+		return
+	_move_to_vector(get_node(player).position, delta)
 
 
-func _move_back() -> void:
-	pass
+func _move_back(delta: float) -> void:
+	_move_to_vector(start_position, delta)
+	if global_position.distance_to(start_position) <= 1:
+		state = WANDER
 
 
 func _on_triggerZone_player_entered(value: bool) -> void:
 	if value:
 		state = CHASE_PLAYER
 	else:
-		state = WANDER
+		state = MOVE_BACK
 
 
 func _on_timer_timeout():
