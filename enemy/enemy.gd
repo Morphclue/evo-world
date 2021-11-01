@@ -98,5 +98,5 @@ func _on_timer_timeout():
 			state = MOVE_BACK
 
 
-func _on_fightTrigger_body_entered(body: PhysicsBody2D) -> void:
-	pass
+func _on_fightTrigger_body_entered(_body: PhysicsBody2D) -> void:
+	EventBus.emit_signal("combat_started", self)

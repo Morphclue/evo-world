@@ -59,26 +59,26 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -524266, 0, 4, -393217, 0, 4, -458732, 0, 4, -327688, 0, 0, -393198, 0, 2, -393192, 0, 2, -327652, 0, 1, -131081, 0, 2, -131078, 0, 1, -196604, 0, 2, -196589, 0, 1, -196588, 0, 1, -131058, 0, 2, -131055, 0, 3, -4, 0, 1, 65541, 0, 2, 65549, 0, 3, 131078, 0, 0, 131081, 0, 0, 196608, 0, 2, 196610, 0, 0, 196625, 0, 0, 196629, 0, 4, 327671, 0, 0, 262148, 0, 3, 262164, 0, 4, 327681, 0, 1, 393232, 0, 1, 524278, 0, 4, 458755, 0, 0, 524289, 0, 0, 524292, 0, 2, 524304, 0, 0, 524320, 0, 2, 655349, 0, 3, 589830, 0, 1, 589835, 0, 0, 589841, 0, 2, 589849, 0, 2, 720886, 0, 1, 786431, 0, 0, 720897, 0, 1, 720901, 0, 0, 720912, 0, 0, 720923, 0, 0, 720928, 0, 1, 851961, 0, 3, 917499, 0, 1, 983030, 0, 3, 983036, 0, 4, 917528, 0, 2, 1048570, 0, 4, 983068, 0, 2, 983073, 0, 2, 1114103, 0, 2, 1048603, 0, 2, 1179638, 0, 3, 1179639, 0, 3, 1179644, 0, 4, 1114112, 0, 2, 1179660, 0, 4, 1179661, 0, 0, 1245196, 0, 4, 1245199, 0, 4, 1245212, 0, 0, 1376248, 0, 0, 1310721, 0, 3, 1310753, 0, 2 )
 
-[node name="YSort" type="YSort" parent="."]
+[node name="environment" type="YSort" parent="."]
 
-[node name="pet" parent="YSort" instance=ExtResource( 6 )]
+[node name="pet" parent="environment" instance=ExtResource( 6 )]
 position = Vector2( 64.5, 48.5 )
 
-[node name="player" parent="YSort" instance=ExtResource( 1 )]
+[node name="player" parent="environment" instance=ExtResource( 1 )]
 position = Vector2( 98.3458, 48.8626 )
 
-[node name="followCamera" parent="YSort/player" instance=ExtResource( 11 )]
+[node name="followCamera" parent="environment/player" instance=ExtResource( 11 )]
 limit_left = -192
 limit_top = -128
 limit_right = 576
 limit_bottom = 336
 
-[node name="npc" parent="YSort" groups=[
+[node name="npc" parent="environment" groups=[
 "minimap_objects",
 ] instance=ExtResource( 9 )]
 position = Vector2( 225.659, 46.8433 )
 
-[node name="enemy" parent="YSort" instance=ExtResource( 13 )]
+[node name="enemy" parent="environment" instance=ExtResource( 13 )]
 player = NodePath("../player")
 
 [node name="hud" type="CanvasLayer" parent="."]
@@ -100,6 +100,6 @@ __meta__ = {
 [node name="miniMap" parent="hud/hudControl" instance=ExtResource( 12 )]
 margin_left = 280.0
 margin_right = 322.0
-player = NodePath("../../../YSort/player/RayCast2D")
+player = NodePath("../../../environment/player/RayCast2D")
 
-[editable path="YSort/player"]
+[editable path="environment/player"]

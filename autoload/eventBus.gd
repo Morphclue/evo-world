@@ -10,3 +10,5 @@ signal confirm_button_pressed(target)
 signal start_dialogue(timeline)
 #warning-ignore:unused_signal
 signal skip_time(minutes)
+#warning-ignore:unused_signal
+signal combat_started(enemy)
