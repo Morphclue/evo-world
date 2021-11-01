@@ -85,13 +85,21 @@ player = NodePath("../player")
 pause_mode = 2
 script = ExtResource( 8 )
 
-[node name="clock" parent="hud" instance=ExtResource( 7 )]
+[node name="hudControl" type="Control" parent="hud"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 320, 180 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="status" parent="hud" instance=ExtResource( 10 )]
+[node name="clock" parent="hud/hudControl" instance=ExtResource( 7 )]
 
-[node name="miniMap" parent="hud" instance=ExtResource( 12 )]
+[node name="status" parent="hud/hudControl" instance=ExtResource( 10 )]
+
+[node name="miniMap" parent="hud/hudControl" instance=ExtResource( 12 )]
 margin_left = 280.0
 margin_right = 322.0
-player = NodePath("../../YSort/player/RayCast2D")
+player = NodePath("../../../YSort/player/RayCast2D")
 
 [editable path="YSort/player"]
