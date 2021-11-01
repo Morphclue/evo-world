@@ -1,7 +1,7 @@
 extends Node
 
-onready var clock: Control = $clock
-onready var status: Control = $status
+onready var clock: Control = $hudControl/clock
+onready var status: Control = $hudControl/status
 var journal_scene: PackedScene  = preload("res://ui/menus/journal.tscn")
 var inventory_scene: PackedScene = preload("res://uI/menus/inventory.tscn")
 var journal: Control = null
