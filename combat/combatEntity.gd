@@ -13,16 +13,23 @@ var velocity: Vector2
 var knockback: Vector2
 var enemy: KinematicBody2D
 var enemies_colliding: bool = false
+var combat_bonus: bool
 
 func _ready() -> void:
 	enemy = get_node(target)
-
+	_connect_signals()
 
 func _physics_process(delta: float) -> void:
 	_calculate_knockback(delta)
 	_move_to_target(delta)
 	_check_distance()
 
+
+func _connect_signals() -> void:
+	Utils.signal_error_code(
+		EventBus.connect("combat_bonus", self, "_on_combat_bonus"),
+		"combat_bonus"
+	)
 
 func _move_to_target(delta: float)  -> void:
 	var direction: Vector2 = (enemy.global_position - global_position).normalized()
@@ -60,13 +67,22 @@ func _check_distance():
 
 
 func _calculate_damage() -> void:
-	status.health -= rand_range(3, 10)
+	var damage: int = int(rand_range(3, 10))
+	if combat_bonus: 
+		damage *= 2
+	print(damage)
+	status.health -= damage
 	if status.health <= 0:
 		_handle_death()
 		status.health = 0
 	if is_player_pet:
 		EventBus.emit_signal("combat_status_changed", status)
 
+
+func _on_combat_bonus():
+	if is_player_pet:
+		return
+	combat_bonus = true
 
 func _handle_death() -> void:
 	EventBus.emit_signal("entity_died", self)
@@ -81,6 +97,7 @@ func _on_area2D_area_entered(_area: Area2D) -> void:
 
 func _on_area2D_area_exited(_area: Area2D) -> void:
 	enemies_colliding = false
+	combat_bonus = false
 	timer.stop()
 
 

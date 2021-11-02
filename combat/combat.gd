@@ -2,9 +2,23 @@ extends Node2D
 
 onready var timer: Timer = $timer
 onready var popup: AcceptDialog = $hud/hudControl/popup
+onready var key: Sprite = $pet/key
+var input_allowed: bool = false
 
 func _ready() -> void:
 	_connect_signals()
+
+
+func _process(_delta: float) -> void:
+	if !input_allowed:
+		return
+	_handle_input()
+
+
+func _handle_input():
+	if Input.is_action_pressed("confirm"):
+		input_allowed = false
+		EventBus.emit_signal("combat_bonus")
 
 
 func _connect_signals() -> void:
@@ -19,17 +33,22 @@ func _connect_signals() -> void:
 	)
 
 
-func _on_time_slowed():
-	Engine.time_scale = 0.3
-	timer.start()
-
-
 func _on_entity_died(entity: KinematicBody2D):
 	if entity.is_player_pet:
 		popup.popup()
 	Engine.time_scale = 1
+	get_tree().paused = true
+
+
+func _on_time_slowed():
+	key.visible = true
+	input_allowed = true
+	Engine.time_scale = 0.3
+	timer.start()
 
 
 func _on_timer_timeout():
+	key.visible = false
+	input_allowed = false
 	Engine.time_scale = 1
 	EventBus.emit_signal("time_resetted")
