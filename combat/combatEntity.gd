@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export (NodePath) var target
+onready var timer: Timer = $timer
 
 var velocity: Vector2
 var knockback: Vector2
@@ -36,13 +37,23 @@ func _calculate_knockback(delta: float)  -> void:
 
 func _add_knockback():
 	knockback = Vector2(rand_range(-1, 1), rand_range(-1, 1))
+	if abs(knockback.x) < 0.1:
+		knockback.x = rand_range(0.1, 1)
 	velocity += knockback * Constants.KNOCKBACK_MULTIPLICATOR
 
 
 func _on_area2D_area_entered(_area: Area2D) -> void:
 	enemies_colliding = true
+	timer.start()
 	_add_knockback()
 
 
 func _on_area2D_area_exited(_area: Area2D) -> void:
 	enemies_colliding = false
+	timer.stop()
+
+
+func _on_timer_timeout():
+	if enemies_colliding:
+		_add_knockback()
+		timer.start()
