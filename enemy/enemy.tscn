@@ -33,6 +33,7 @@ shape = SubResource( 1 )
 [node name="fightTrigger" parent="." instance=ExtResource( 5 )]
 collision_layer = 4
 collision_mask = 2
+script = null
 
 [node name="triggerZone" parent="." instance=ExtResource( 3 )]
 
