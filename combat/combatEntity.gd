@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
 export (NodePath) var target
+export var is_player_pet: bool
 onready var timer: Timer = $collisionTimer
+
+var health: int = 100
+var mana: int = 3
 
 var velocity: Vector2
 var knockback: Vector2
