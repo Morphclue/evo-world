@@ -56,7 +56,7 @@ func _add_knockback() -> void:
 	velocity += knockback * Constants.KNOCKBACK_MULTIPLICATOR
 
 
-func _check_distance():
+func _check_distance() -> void:
 	var distance: int = int(global_position.distance_to(enemy.global_position))
 	
 	if is_player_pet \
@@ -79,10 +79,11 @@ func _calculate_damage() -> void:
 		EventBus.emit_signal("combat_status_changed", status)
 
 
-func _on_combat_bonus():
+func _on_combat_bonus() -> void:
 	if is_player_pet:
 		return
 	combat_bonus = true
+
 
 func _handle_death() -> void:
 	EventBus.emit_signal("entity_died", self)

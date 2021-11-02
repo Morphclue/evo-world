@@ -33,14 +33,14 @@ func _connect_signals() -> void:
 	)
 
 
-func _on_entity_died(entity: KinematicBody2D):
+func _on_entity_died(entity: KinematicBody2D) -> void:
 	if entity.is_player_pet:
 		popup.popup()
 	Engine.time_scale = 1
 	get_tree().paused = true
 
 
-func _on_time_slowed():
+func _on_time_slowed() -> void:
 	key.visible = true
 	input_allowed = true
 	Engine.time_scale = 0.3
