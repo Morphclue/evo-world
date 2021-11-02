@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://ui/hud/combatStatus.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://ui/fonts/NESCyrillic.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 8
+font_data = SubResource( 1 )
+
+[sub_resource type="Theme" id=9]
+default_font = SubResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.698039, 0.160784, 0.160784, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.152941, 0.164706, 0.776471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+
+[node name="status" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 320, 180 )
+theme = SubResource( 9 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hBox" type="HBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 40.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labels" type="VBoxContainer" parent="hBox"]
+margin_left = 222.0
+margin_right = 246.0
+margin_bottom = 35.0
+
+[node name="health" type="Label" parent="hBox/labels"]
+margin_right = 24.0
+margin_bottom = 7.0
+text = "Health"
+
+[node name="mana" type="Label" parent="hBox/labels"]
+margin_top = 11.0
+margin_right = 24.0
+margin_bottom = 18.0
+text = "Mana"
+
+[node name="progressBars" type="VBoxContainer" parent="hBox"]
+margin_left = 250.0
+margin_right = 310.0
+margin_bottom = 35.0
+
+[node name="health" type="ProgressBar" parent="hBox/progressBars"]
+margin_right = 60.0
+margin_bottom = 7.0
+rect_min_size = Vector2( 60, 7 )
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 2 )
+step = 1.0
+value = 100.0
+percent_visible = false
+
+[node name="current" type="Label" parent="hBox/progressBars/health"]
+margin_right = 60.0
+margin_bottom = 7.0
+text = "100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mana" type="ProgressBar" parent="hBox/progressBars"]
+margin_top = 11.0
+margin_right = 60.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 60, 7 )
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 3 )
+max_value = 10.0
+step = 1.0
+value = 3.0
+percent_visible = false
+
+[node name="current" type="Label" parent="hBox/progressBars/mana"]
+margin_right = 60.0
+margin_bottom = 7.0
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

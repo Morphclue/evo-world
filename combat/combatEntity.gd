@@ -4,8 +4,10 @@ export (NodePath) var target
 export var is_player_pet: bool
 onready var timer: Timer = $collisionTimer
 
-var health: int = 100
-var mana: int = 3
+var status: Dictionary = {
+	health = 100,
+	mana = 3,
+}
 
 var velocity: Vector2
 var knockback: Vector2
@@ -46,9 +48,23 @@ func _add_knockback() -> void:
 	velocity += knockback * Constants.KNOCKBACK_MULTIPLICATOR
 
 
+func _calculate_damage() -> void:
+	status.health -= rand_range(3, 10)
+	if status.health <= 0:
+		_handle_death()
+		status.health = 0
+	if is_player_pet:
+		EventBus.emit_signal("combat_status_changed", status)
+
+
+func _handle_death() -> void:
+	print("TODO")
+
+
 func _on_area2D_area_entered(_area: Area2D) -> void:
 	enemies_colliding = true
 	timer.start()
+	_calculate_damage()
 	_add_knockback()
 
 
