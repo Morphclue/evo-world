@@ -21,6 +21,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_calculate_knockback(delta)
 	_move_to_target(delta)
+	_check_distance()
 
 
 func _move_to_target(delta: float)  -> void:
@@ -46,6 +47,16 @@ func _add_knockback() -> void:
 	if abs(knockback.x) < 0.1:
 		knockback.x = rand_range(0.1, 1)
 	velocity += knockback * Constants.KNOCKBACK_MULTIPLICATOR
+
+
+func _check_distance():
+	var distance: int = int(global_position.distance_to(enemy.global_position))
+	
+	if is_player_pet \
+		and distance == 33 \
+		and Engine.time_scale == 1.0 \
+		and knockback == Vector2.ZERO:
+			EventBus.emit_signal("time_slowed")
 
 
 func _calculate_damage() -> void:

@@ -60,5 +60,10 @@ __meta__ = {
 
 [node name="status" parent="hud/hudControl" instance=ExtResource( 6 )]
 
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+
 [editable path="pet"]
 [editable path="enemy"]
