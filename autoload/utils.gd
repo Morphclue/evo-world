@@ -4,6 +4,10 @@ var world_scene: PackedScene
 var enemy: KinematicBody2D
 
 func switch_scene(parent: Node, scene: PackedScene) -> void:
+	call_deferred("_switch_scene", parent, scene)
+
+
+func _switch_scene(parent: Node, scene: PackedScene):
 	get_parent().add_child(scene.instance())
 	parent.queue_free()
 
