@@ -5,6 +5,8 @@ signal status_changed(status)
 #warning-ignore:unused_signal
 signal combat_status_changed(status)
 #warning-ignore:unused_signal
+signal entity_died(entity)
+#warning-ignore:unused_signal
 signal time_slowed()
 #warning-ignore:unused_signal
 signal time_resetted()

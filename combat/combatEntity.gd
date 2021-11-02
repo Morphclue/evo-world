@@ -69,7 +69,7 @@ func _calculate_damage() -> void:
 
 
 func _handle_death() -> void:
-	print("TODO")
+	EventBus.emit_signal("entity_died", self)
 
 
 func _on_area2D_area_entered(_area: Area2D) -> void:

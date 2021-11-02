@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://combat/combat.gd" type="Script" id=1]
 [ext_resource path="res://combat/combatEntity.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://enemy/sprites/Ghost_16x28.png" type="Texture" id=4]
 [ext_resource path="res://world/wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/hud/combatStatus.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/popups/popup.tscn" type="PackedScene" id=7]
 
 [node name="combat" type="Node2D"]
 script = ExtResource( 1 )
@@ -59,6 +60,8 @@ __meta__ = {
 }
 
 [node name="status" parent="hud/hudControl" instance=ExtResource( 6 )]
+
+[node name="popup" parent="hud/hudControl" instance=ExtResource( 7 )]
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 0.1
