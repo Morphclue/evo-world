@@ -3,6 +3,7 @@ extends Node2D
 onready var timer: Timer = $timer
 onready var popup: AcceptDialog = $hud/hudControl/popup
 onready var key: Sprite = $pet/key
+onready var ending: Label = $hud/hudControl/ending
 var input_allowed: bool = false
 
 func _ready() -> void:
@@ -37,6 +38,7 @@ func _on_entity_died(entity: KinematicBody2D) -> void:
 	if entity.is_player_pet:
 		popup.popup()
 	Engine.time_scale = 1
+	ending.visible = true
 	get_tree().paused = true
 
 
