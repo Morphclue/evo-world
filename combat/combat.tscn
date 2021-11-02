@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://combat/combat.gd" type="Script" id=1]
 [ext_resource path="res://combat/combatEntity.tscn" type="PackedScene" id=2]
 [ext_resource path="res://pet/sprites/pet.png" type="Texture" id=3]
 [ext_resource path="res://enemy/sprites/Ghost_16x28.png" type="Texture" id=4]
+[ext_resource path="res://world/wall.tscn" type="PackedScene" id=5]
 
 [node name="combat" type="Node2D"]
 script = ExtResource( 1 )
@@ -21,6 +22,30 @@ target = NodePath("../pet")
 
 [node name="sprite" parent="enemy" index="0"]
 texture = ExtResource( 4 )
+
+[node name="walls" type="Node2D" parent="."]
+
+[node name="wall" parent="walls" instance=ExtResource( 5 )]
+position = Vector2( -8, 88 )
+scale = Vector2( 1, 10 )
+collision_mask = 4
+
+[node name="wall2" parent="walls" instance=ExtResource( 5 )]
+position = Vector2( 328, 88 )
+scale = Vector2( 1, 10 )
+collision_mask = 4
+
+[node name="wall3" parent="walls" instance=ExtResource( 5 )]
+position = Vector2( 160, 184 )
+rotation = 1.5708
+scale = Vector2( 1, 17 )
+collision_mask = 4
+
+[node name="wall4" parent="walls" instance=ExtResource( 5 )]
+position = Vector2( 160, -8 )
+rotation = 1.5708
+scale = Vector2( 1, 17 )
+collision_mask = 4
 
 [editable path="pet"]
 [editable path="enemy"]
