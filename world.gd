@@ -13,14 +13,5 @@ func _connect_signals() -> void:
 	)
 
 
-func _on_combat_started(enemy: KinematicBody2D) -> void:
-	var scene: PackedScene = PackedScene.new()
-	var _error = scene.pack(get_tree().get_current_scene())
-	Utils.save_world(scene, enemy)
-	
-	call_deferred("_remove_enemy", enemy)
+func _on_combat_started(_enemy: KinematicBody2D) -> void:
 	Utils.switch_scene(self, combat_scene)
-
-
-func _remove_enemy(enemy):
-	enemy.get_parent().remove_child(enemy)
