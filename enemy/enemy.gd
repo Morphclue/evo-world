@@ -83,7 +83,7 @@ func _on_triggerZone_player_entered(value: bool) -> void:
 		state = MOVE_BACK
 
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	match state:
 		STOP:
 			_change_target()

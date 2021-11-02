@@ -11,7 +11,7 @@ func _ready() -> void:
 	_init_signals()
 
 
-func _init_signals():
+func _init_signals() -> void:
 	Utils.signal_error_code(
 		EventBus.connect("skip_time", self, "_skip_time"),
 		"skip_time"

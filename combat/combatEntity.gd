@@ -35,7 +35,7 @@ func _calculate_knockback(delta: float)  -> void:
 	knockback = move_and_slide(knockback)
 
 
-func _add_knockback():
+func _add_knockback() -> void:
 	knockback = Vector2(rand_range(-1, 1), rand_range(-1, 1))
 	if abs(knockback.x) < 0.1:
 		knockback.x = rand_range(0.1, 1)
@@ -53,7 +53,7 @@ func _on_area2D_area_exited(_area: Area2D) -> void:
 	timer.stop()
 
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	if enemies_colliding:
 		_add_knockback()
 		timer.start()

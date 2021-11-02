@@ -25,4 +25,4 @@ const QUEST_ICON: String = "quest"
 const ENEMY_ICON: String = "enemy"
 
 const MAX_WANDER_RANGE: int = 20
-const KNOCKBACK_MULTIPLICATOR = 250
+const KNOCKBACK_MULTIPLICATOR: int = 250

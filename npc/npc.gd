@@ -18,7 +18,7 @@ func _init_signals() -> void:
 	)
 
 
-func _start_dialogue(target):
+func _start_dialogue(target) -> void:
 	if self != target:
 		return
 	EventBus.emit_signal("start_dialogue", "train")

@@ -19,13 +19,13 @@ var current_sprite: Dictionary = {
 	Constants.ACCESSORY : 0,
 }
 
-func _ready():
+func _ready() -> void:
 	if PlayerVariables.current_sprite:
 		current_sprite = PlayerVariables.current_sprite
 	set_sprites()
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	_move(delta)
 	_handle_colliding()
 

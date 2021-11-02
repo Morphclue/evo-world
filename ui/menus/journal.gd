@@ -37,7 +37,7 @@ func _load_ui() -> void:
 	item_list.grab_focus()
 
 
-func _on_itemList_item_selected(index) -> void:
+func _on_itemList_item_selected(index: int) -> void:
 	description.text = quests[index].description
 
 

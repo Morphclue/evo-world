@@ -28,7 +28,7 @@ func _init_signals() -> void:
 	)
 
 
-func _set_select_position(value) -> void:
+func _set_select_position(value: int) -> void:
 	select_position = value
 	emit_signal("hover_changed")
 

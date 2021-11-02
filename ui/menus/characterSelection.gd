@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 	_handle_input()
 
 
-func _handle_input():
+func _handle_input() -> void:
 	if Input.is_action_just_pressed("ui_up"):
 		self.current_selection -= 1
 	if Input.is_action_just_pressed("ui_down"):
@@ -38,13 +38,13 @@ func _handle_input():
 		_accept_button_pressed()
 
 
-func _simulate_button_press(value: int):
+func _simulate_button_press(value: int) -> void:
 	var option: Label = v_box.get_child(current_selection).get_child(1)
 	var number: Label = v_box.get_child(current_selection).get_child(2)
 	_on_button_pressed(option, number, value)
 
 
-func _set_selection(value: int):
+func _set_selection(value: int) -> void:
 	current_selection = value
 	current_selection = int(clamp(current_selection, 1, sprites.size() + 1))
 	_hover()
@@ -101,7 +101,7 @@ func _initUI() -> void:
 	v_box.add_child(accept_button)
 
 
-func _hover():
+func _hover() -> void:
 	_clear_hover()
 	
 	if current_selection == sprites.size() + 1:
@@ -115,7 +115,7 @@ func _hover():
 	number.add_color_override("font_color", Constants.YELLOW)
 
 
-func _clear_hover():
+func _clear_hover() -> void:
 	for count in range(1, v_box.get_children().size() - 1):
 		var option: Label = v_box.get_child(count).get_child(1)
 		var number: Label = v_box.get_child(count).get_child(2)
