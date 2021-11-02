@@ -79,6 +79,7 @@ limit_bottom = 336
 position = Vector2( 225.659, 46.8433 )
 
 [node name="enemy" parent="environment" instance=ExtResource( 13 )]
+position = Vector2( 152, -32 )
 player = NodePath("../player")
 
 [node name="hud" type="CanvasLayer" parent="."]
