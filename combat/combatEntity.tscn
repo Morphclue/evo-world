@@ -23,8 +23,8 @@ collision_mask = 5
 [node name="collider" type="CollisionShape2D" parent="area2D"]
 shape = SubResource( 2 )
 
-[node name="timer" type="Timer" parent="."]
+[node name="collisionTimer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="area2D" to="." method="_on_area2D_area_entered"]
 [connection signal="area_exited" from="area2D" to="." method="_on_area2D_area_exited"]
-[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="collisionTimer" to="." method="_on_timer_timeout"]

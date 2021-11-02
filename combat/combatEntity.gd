@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export (NodePath) var target
-onready var timer: Timer = $timer
+onready var timer: Timer = $collisionTimer
 
 var velocity: Vector2
 var knockback: Vector2
