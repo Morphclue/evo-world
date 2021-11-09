@@ -1,6 +1,5 @@
 extends Control
 
-var seconds: int = 0
 var minutes: int = 0
 var hours: int = 0
 
