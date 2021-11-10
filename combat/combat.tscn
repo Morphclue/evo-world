@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://combat/combat.gd" type="Script" id=1]
 [ext_resource path="res://combat/combatEntity.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://ui/popups/popup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/hud/sprites/button-sheet.png" type="Texture" id=8]
 [ext_resource path="res://ui/fonts/theme.tres" type="Theme" id=9]
+[ext_resource path="res://combat/cards.tscn" type="PackedScene" id=10]
 
 [node name="combat" type="Node2D"]
 script = ExtResource( 1 )
@@ -84,6 +85,8 @@ text = "Thanks for playing!
 
 Please close this Demo!"
 align = 1
+
+[node name="cards" parent="hud/hudControl" instance=ExtResource( 10 )]
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 0.1
