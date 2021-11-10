@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/fonts/theme.tres" type="Theme" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://ui/fonts/NESCyrillic.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = SubResource( 1 )
+
+[node name="card" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="colorRect" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cardName" type="Label" parent="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 12.0
+text = "Name"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="description" type="Label" parent="VBoxContainer"]
+margin_top = 16.0
+margin_right = 40.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 2 )
+text = "test.text"
+autowrap = true
