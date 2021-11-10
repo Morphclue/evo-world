@@ -18,6 +18,9 @@ func _handle_input() -> void:
 		self.current_selection -= 1
 	if Input.is_action_just_pressed("right"):
 		self.current_selection += 1
+	if Input.is_action_just_pressed("up"):
+		if current_selection % cards.size() == 0:
+			EventBus.emit_signal("heal_card_used")
 
 
 func _raise_card() -> void:

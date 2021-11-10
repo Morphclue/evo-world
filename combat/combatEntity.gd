@@ -30,6 +30,10 @@ func _connect_signals() -> void:
 		EventBus.connect("combat_bonus", self, "_on_combat_bonus"),
 		"combat_bonus"
 	)
+	Utils.signal_error_code(
+		EventBus.connect("heal_card_used", self, "_on_heal_card_used"),
+		"heal_card_used"
+	)
 
 func _move_to_target(delta: float)  -> void:
 	var direction: Vector2 = (enemy.global_position - global_position).normalized()
@@ -70,7 +74,6 @@ func _calculate_damage() -> void:
 	var damage: int = int(rand_range(3, 10))
 	if combat_bonus: 
 		damage *= 2
-	print(damage)
 	status.health -= damage
 	if status.health <= 0:
 		_handle_death()
@@ -81,8 +84,29 @@ func _calculate_damage() -> void:
 
 func _on_combat_bonus() -> void:
 	if is_player_pet:
+		_gain_mana()
 		return
 	combat_bonus = true
+
+
+func _gain_mana():
+	status.mana += 1
+	if status.mana > 10:
+		status.mana = 10
+	EventBus.emit_signal("combat_status_changed", status)
+
+
+func _on_heal_card_used() -> void:
+	if !is_player_pet:
+		return
+	if status.mana < 2:
+		return
+	status.mana -= 2
+	status.health += 20
+	if status.health > 100:
+		status.health = 100
+	
+	EventBus.emit_signal("combat_status_changed", status)
 
 
 func _handle_death() -> void:

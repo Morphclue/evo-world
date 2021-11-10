@@ -22,3 +22,5 @@ signal start_dialogue(timeline)
 signal skip_time(minutes)
 #warning-ignore:unused_signal
 signal combat_started(enemy)
+#warning-ignore:unused_signal
+signal heal_card_used()

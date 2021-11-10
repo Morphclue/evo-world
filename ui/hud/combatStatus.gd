@@ -18,5 +18,5 @@ func _on_combat_status_changed(status: Dictionary):
 	health_bar.value = status.health
 	mana_bar.value = status.mana
 	health_bar.get_child(0).text = str(int(status.health)) + "/" +  str(health_bar.max_value)
-	mana_bar.get_child(0).text = str(int(status.mana)) + "/" + str(health_bar.max_value)
+	mana_bar.get_child(0).text = str(int(status.mana)) + "/" + str(mana_bar.max_value)
 	
