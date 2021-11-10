@@ -3,7 +3,7 @@ extends Control
 var cards: Array
 var current_selection: int = 0
 
-func _ready():
+func _ready() -> void:
 	for card in get_children():
 		cards.append(card)
 

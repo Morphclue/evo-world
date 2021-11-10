@@ -19,6 +19,7 @@ func _ready() -> void:
 	enemy = get_node(target)
 	_connect_signals()
 
+
 func _physics_process(delta: float) -> void:
 	_calculate_knockback(delta)
 	_move_to_target(delta)
@@ -34,6 +35,7 @@ func _connect_signals() -> void:
 		EventBus.connect("heal_card_used", self, "_on_heal_card_used"),
 		"heal_card_used"
 	)
+
 
 func _move_to_target(delta: float)  -> void:
 	var direction: Vector2 = (enemy.global_position - global_position).normalized()
@@ -89,7 +91,7 @@ func _on_combat_bonus() -> void:
 	combat_bonus = true
 
 
-func _gain_mana():
+func _gain_mana() -> void:
 	status.mana += 1
 	if status.mana > 10:
 		status.mana = 10

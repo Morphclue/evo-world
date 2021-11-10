@@ -16,7 +16,7 @@ enum {
 const minimap_icon = Constants.ENEMY_ICON
 onready var timer: Timer = $timer
 
-func _ready():
+func _ready() -> void:
 	randomize()
 	start_position = global_position
 	target_position = global_position

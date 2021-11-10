@@ -31,7 +31,7 @@ func _process(_delta) -> void:
 	_set_markers_position()
 
 
-func _init_markers():
+func _init_markers() -> void:
 	var map_objects = get_tree().get_nodes_in_group("minimap_objects")
 	for item in map_objects:
 		var new_marker = icons[item.minimap_icon].duplicate()
@@ -40,7 +40,7 @@ func _init_markers():
 		markers[item] = new_marker
 
 
-func _set_markers_position():
+func _set_markers_position() -> void:
 	for item in markers:
 		var obj_pos = (item.position - get_node(player).get_parent().position) 
 		obj_pos = obj_pos * grid_scale + grid.rect_size  / 2
@@ -53,12 +53,12 @@ func _set_markers_position():
 		markers[item].position = obj_pos
 
 
-func _set_zoom(value):
+func _set_zoom(value: float) -> void:
 	zoom = clamp(value, Constants.MIN_GRID_ZOOM, Constants.MAX_GRID_ZOOM)
 	grid_scale = grid.rect_size / (get_viewport_rect().size * zoom)
 
 
-func _on_miniMap_gui_input(event):
+func _on_miniMap_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == BUTTON_WHEEL_UP:
 			self.zoom += Constants.ZOOM_FACTOR

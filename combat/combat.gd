@@ -49,7 +49,7 @@ func _on_time_slowed() -> void:
 	timer.start()
 
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	key.visible = false
 	input_allowed = false
 	Engine.time_scale = 1

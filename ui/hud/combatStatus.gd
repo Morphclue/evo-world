@@ -14,7 +14,7 @@ func _connect_signals() -> void:
 	)
 
 
-func _on_combat_status_changed(status: Dictionary):
+func _on_combat_status_changed(status: Dictionary) -> void:
 	health_bar.value = status.health
 	mana_bar.value = status.mana
 	health_bar.get_child(0).text = str(int(status.health)) + "/" +  str(health_bar.max_value)

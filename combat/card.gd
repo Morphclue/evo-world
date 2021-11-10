@@ -7,7 +7,7 @@ onready var card_name_label: Label = $VBoxContainer/HBoxContainer/cardName
 onready var card_name_description: Label = $VBoxContainer/description
 onready var mana_label: Label = $VBoxContainer/HBoxContainer/mana
 
-func _ready():
+func _ready() -> void:
 	card_name_label.text = card_name
 	card_name_description.text = card_description
 	mana_label.text = str(mana_points)

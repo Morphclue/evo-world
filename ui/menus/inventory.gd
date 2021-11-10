@@ -17,7 +17,7 @@ func _ready() -> void:
 	_select_hover()
 
 
-func _process(_delta) -> void:
+func _process(_delta: float) -> void:
 	_handle_input()
 
 

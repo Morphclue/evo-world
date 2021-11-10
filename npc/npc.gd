@@ -18,7 +18,7 @@ func _init_signals() -> void:
 	)
 
 
-func _start_dialogue(target) -> void:
+func _start_dialogue(target: Node2D) -> void:
 	if self != target:
 		return
 	EventBus.emit_signal("start_dialogue", "train")
