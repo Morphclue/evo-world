@@ -18,7 +18,7 @@ font_data = SubResource( 1 )
 font_path = "res://ui/fonts/NESCyrillic.ttf"
 
 [sub_resource type="DynamicFont" id=2]
-size = 8
+size = 4
 font_data = SubResource( 4 )
 
 [node name="card" type="Control"]
@@ -72,7 +72,8 @@ align = 2
 [node name="description" type="Label" parent="VBoxContainer"]
 margin_top = 11.0
 margin_right = 40.0
-margin_bottom = 18.0
+margin_bottom = 15.0
 custom_fonts/font = SubResource( 2 )
 text = "test.text"
+align = 1
 autowrap = true

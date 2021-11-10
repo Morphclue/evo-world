@@ -1,59 +1,56 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://combat/card.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/cards.gd" type="Script" id=2]
 
 [node name="cards" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 320.0
+margin_bottom = 180.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="hBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 48.0
+[node name="card" parent="." instance=ExtResource( 1 )]
+margin_left = 40.0
 margin_top = 168.0
-margin_right = 289.0
-margin_bottom = 200.0
-custom_constants/separation = 50
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="card" parent="hBoxContainer" instance=ExtResource( 1 )]
-margin_right = 0.0
-margin_bottom = 32.0
+margin_bottom = 197.0
 card_name = "Heal"
 card_description = "Lifepoints +20"
 mana_points = 2
 
-[node name="card2" parent="hBoxContainer" instance=ExtResource( 1 )]
-margin_left = 50.0
-margin_right = 50.0
-margin_bottom = 32.0
+[node name="card2" parent="." instance=ExtResource( 1 )]
+margin_left = 90.0
+margin_top = 168.0
+margin_right = 90.0
+margin_bottom = 197.0
 card_name = "Shield"
 card_description = "Not implemented"
 mana_points = 2
 
-[node name="card3" parent="hBoxContainer" instance=ExtResource( 1 )]
-margin_left = 100.0
-margin_right = 100.0
-margin_bottom = 32.0
+[node name="card3" parent="." instance=ExtResource( 1 )]
+margin_left = 140.0
+margin_top = 168.0
+margin_right = 140.0
+margin_bottom = 197.0
 card_name = "Wall"
 card_description = "Not implemented"
 mana_points = 4
 
-[node name="card5" parent="hBoxContainer" instance=ExtResource( 1 )]
-margin_left = 150.0
-margin_right = 150.0
-margin_bottom = 32.0
+[node name="card5" parent="." instance=ExtResource( 1 )]
+margin_left = 190.0
+margin_top = 168.0
+margin_right = 190.0
+margin_bottom = 197.0
 card_name = "Freeze"
 card_description = "Not implemented"
 mana_points = 4
 
-[node name="card4" parent="hBoxContainer" instance=ExtResource( 1 )]
-margin_left = 200.0
-margin_right = 200.0
-margin_bottom = 32.0
+[node name="card4" parent="." instance=ExtResource( 1 )]
+margin_left = 240.0
+margin_top = 168.0
+margin_right = 240.0
+margin_bottom = 197.0
 card_name = "Ultra"
 card_description = "Not implemented"
 mana_points = 8
