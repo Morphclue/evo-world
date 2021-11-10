@@ -1,18 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ui/fonts/theme.tres" type="Theme" id=1]
+[ext_resource path="res://combat/card.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://ui/fonts/NESCyrillic.ttf"
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 8
 font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://ui/fonts/NESCyrillic.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = SubResource( 4 )
 
 [node name="card" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,19 +45,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cardName" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 40.0
-margin_bottom = 12.0
+margin_bottom = 7.0
+alignment = 1
+
+[node name="cardName" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 8.0
+margin_right = 24.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 3 )
 text = "Name"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="mana" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 28.0
+margin_right = 32.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 2
+
 [node name="description" type="Label" parent="VBoxContainer"]
-margin_top = 16.0
+margin_top = 11.0
 margin_right = 40.0
-margin_bottom = 23.0
+margin_bottom = 18.0
 custom_fonts/font = SubResource( 2 )
 text = "test.text"
 autowrap = true
