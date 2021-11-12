@@ -63,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="evo-world"
-run/main_scene="res://world.tscn"
+run/main_scene="res://ui/menus/mainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
