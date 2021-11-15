@@ -35,6 +35,8 @@ func _select() -> void:
 
 func _hover(value: int) -> void:
 	current_selection += value
+	if current_selection < 0:
+		current_selection += 3
 	current_selection = current_selection % 3 
 	
 	for option in options:
