@@ -68,16 +68,14 @@ func _handle_input() -> void:
 		return
 	
 	if Input.is_action_just_pressed("journal"):
-		if is_instance_valid(journal):
-			_close_windows()
-		else:
+		_close_windows()
+		if !is_instance_valid(journal):
 			journal = journal_scene.instance()
 			_add_window(journal)
 	
 	if Input.is_action_just_pressed("inventory"):
-		if is_instance_valid(inventory):
-			_close_windows()
-		else:
+		_close_windows()
+		if !is_instance_valid(inventory):
 			inventory = inventory_scene.instance()
 			_add_window(inventory)
 	
