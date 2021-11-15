@@ -1,7 +1,10 @@
 extends Node
 
+onready var hud_control: Control = $hudControl
 onready var clock: Control = $hudControl/clock
 onready var status: Control = $hudControl/status
+onready var mini_map: MarginContainer = $hudControl/miniMap
+
 var journal_scene: PackedScene  = preload("res://ui/menus/journal.tscn")
 var inventory_scene: PackedScene = preload("res://ui/menus/inventory.tscn")
 var journal: Control = null
@@ -91,5 +94,6 @@ func _close_windows() -> void:
 	journal = null
 	inventory = null
 	get_tree().paused = false
-	Utils.remove_children(self, [clock, status])
+	Utils.remove_children(self, [hud_control])
+	Utils.remove_children(hud_control, [clock, status, mini_map])
 	
