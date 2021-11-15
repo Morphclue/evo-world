@@ -23,3 +23,10 @@ func remove_children(parent: Node, ignore = []) -> void:
 func signal_error_code(error_code: int, signal_name: String) -> void:
 	if error_code != OK:
 		print("Failed to connect " + signal_name)
+
+
+func positive_mod(value: int, divisor: int) -> int:
+	var result = value % divisor
+	if result < 0:
+		return value + divisor
+	return result

@@ -31,11 +31,11 @@ func _physics_process(delta: float) -> void:
 
 
 func set_sprites() -> void:
-	current_sprite.Hair = current_sprite.Hair % sprites.hair.size()
-	current_sprite.Head = current_sprite.Head % sprites.head.size()
-	current_sprite.Body = current_sprite.Body % sprites.body.size()
-	current_sprite.Shoes = current_sprite.Shoes % sprites.shoes.size()
-	current_sprite.Accessory = current_sprite.Accessory % sprites.accessory.size()
+	current_sprite.Hair = Utils.positive_mod(current_sprite.Hair, sprites.hair.size())
+	current_sprite.Head = Utils.positive_mod(current_sprite.Head, sprites.head.size())
+	current_sprite.Body = Utils.positive_mod(current_sprite.Body, sprites.body.size())
+	current_sprite.Shoes = Utils.positive_mod(current_sprite.Shoes, sprites.shoes.size())
+	current_sprite.Accessory = Utils.positive_mod(current_sprite.Accessory, sprites.accessory.size())
 	
 	hair_sprite.texture = sprites.hair[current_sprite.Hair]
 	head_sprite.texture = sprites.head[current_sprite.Head]
