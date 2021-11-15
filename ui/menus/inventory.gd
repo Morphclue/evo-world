@@ -36,10 +36,16 @@ func _set_select_position(value: int) -> void:
 func _handle_input() -> void:
 	if Input.is_action_just_pressed("ui_down"):
 		#warning-ignore:integer_division
-		self.select_position = (select_position + 1)  % (Constants.INVENTORY_SIZE / 2)
+		self.select_position = Utils.positive_mod(
+			(select_position + 1),
+			(Constants.INVENTORY_SIZE / 2)
+		)
 	if Input.is_action_just_pressed("ui_up"):
 		#warning-ignore:integer_division
-		self.select_position = (select_position - 1)  % (Constants.INVENTORY_SIZE / 2)
+		self.select_position = Utils.positive_mod(
+			(select_position - 1),
+			(Constants.INVENTORY_SIZE / 2)
+		)
 	if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
 		right_side = !right_side
 		emit_signal("hover_changed")
@@ -67,7 +73,7 @@ func _load_dummy_items() -> void:
 	
 	for i in range(Constants.INVENTORY_SIZE - 1):
 		var item_name: String = "Item " + str(i + 1)
-		var desc: String = "Desc: " + str(i + 1)
+		var desc: String = "Desc: Example"
 		var item: Item = Item.new(item_name, desc)
 		items.append(item)
 

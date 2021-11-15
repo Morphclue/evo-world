@@ -26,7 +26,7 @@ func signal_error_code(error_code: int, signal_name: String) -> void:
 
 
 func positive_mod(value: int, divisor: int) -> int:
-	var result = value % divisor
+	var result: int = value % divisor
 	if result < 0:
 		return value + divisor
 	return result
