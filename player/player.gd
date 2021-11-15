@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 
 func set_sprites() -> void:
 	current_sprite.Hair = current_sprite.Hair % sprites.hair.size()
-	current_sprite.Head = 0
+	current_sprite.Head = current_sprite.Head % sprites.head.size()
 	current_sprite.Body = current_sprite.Body % sprites.body.size()
 	current_sprite.Shoes = current_sprite.Shoes % sprites.shoes.size()
 	current_sprite.Accessory = current_sprite.Accessory % sprites.accessory.size()

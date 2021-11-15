@@ -46,6 +46,7 @@ func _set_markers_position() -> void:
 		obj_pos = obj_pos * grid_scale + grid.rect_size  / 2
 		obj_pos.x = clamp(obj_pos.x, 0, grid.rect_size.x)
 		obj_pos.y = clamp(obj_pos.y, 0, grid.rect_size.y)
+		
 		if grid.get_rect().has_point(obj_pos + grid.rect_position):
 			markers[item].scale = Vector2(sprite_scaling, sprite_scaling)
 		else: 
