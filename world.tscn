@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://world/followCamera.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/hud/miniMap.tscn" type="PackedScene" id=12]
 [ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://world/wall.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "grass_atlas.png 0"
@@ -100,5 +101,25 @@ __meta__ = {
 margin_left = 280.0
 margin_right = 322.0
 player = NodePath("../../../environment/player/RayCast2D")
+
+[node name="walls" type="Node2D" parent="."]
+
+[node name="wall" parent="walls" instance=ExtResource( 14 )]
+position = Vector2( 192, 344 )
+scale = Vector2( 40, 1 )
+
+[node name="wall2" parent="walls" instance=ExtResource( 14 )]
+position = Vector2( 192, -128 )
+scale = Vector2( 40, 1 )
+
+[node name="wall3" parent="walls" instance=ExtResource( 14 )]
+position = Vector2( -200, 104 )
+rotation = 1.5708
+scale = Vector2( 25, 1 )
+
+[node name="wall4" parent="walls" instance=ExtResource( 14 )]
+position = Vector2( 584, 104 )
+rotation = 1.5708
+scale = Vector2( 25, 1 )
 
 [editable path="environment/player"]
