@@ -14,3 +14,8 @@ The [Main-Character](https://github.com/Morphclue/evo-world/blob/master/player/s
 
 ### Addons
 * [Dialogic](https://github.com/coppolaemilio/dialogic)
+
+### Other related repositories
+* Bachelor [thesis](https://github.com/Morphclue/bachelor-thesis) - Conception and development of a role-playing game
+* Interviews in the form of [transcripts](https://github.com/Morphclue/digimon-world-transcripts) 
+* Data and R-Code for a [survey](https://github.com/Morphclue/digimon-world-survey) conducted about Digimon World 1
